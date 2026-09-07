@@ -21,7 +21,6 @@ const FormDatePicker = () => {
           const { day, month, year } = value;
           const inputDate = new Date(year, month - 1, day);
 
-          console.log(inputDate);
           if (isFuture(inputDate))
             return 'Selected Dates cannot be in the future';
 
