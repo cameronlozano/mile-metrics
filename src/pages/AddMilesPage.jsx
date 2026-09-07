@@ -137,7 +137,7 @@ export default function AddMilesPage() {
             {/* Location Selection & tags */}
             <div
               onKeyDownCapture={handleKeyDownCapture}
-              className='mb-5 flex flex-col pb-4'
+              className='mb-5 flex flex-col pb-4.5'
             >
               <LocationEntry
                 fields={fields}
