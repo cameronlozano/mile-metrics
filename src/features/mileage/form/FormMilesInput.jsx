@@ -24,6 +24,7 @@ const FormMilesInput = ({ mode }) => {
       inputName: 'initialMiles',
       rules: {
         required: 'Please provide the starting odometer value',
+        validate: (values) => {},
       },
       id: 'initial-odometer',
       placeholder: 'Starting miles...',

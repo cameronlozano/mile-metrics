@@ -32,7 +32,7 @@ export default function AddMilesPage() {
     control,
     formState: { isSubmitting },
   } = useForm({
-    mode: 'onChange',
+    mode: 'onTouched',
     delayError: 100,
     defaultValues: {
       date: null,
