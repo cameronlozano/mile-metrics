@@ -130,7 +130,7 @@ export default function AddMilesPage() {
           {/* content container */}
           <div className='flex w-6xl flex-col justify-center divide-y-2 divide-gray-200'>
             {/* Datepicker & mileage inputs */}
-            <div className='mb-4 flex justify-evenly pb-6'>
+            <div className='mb-4 flex justify-evenly pb-5.5'>
               {/* Date input */}
               <FormDatePicker />
 

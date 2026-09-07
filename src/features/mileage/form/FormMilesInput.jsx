@@ -15,26 +15,37 @@ const FormMilesInput = ({ mode }) => {
       mode,
     });
 
-  const inputStyling =
-    'w-50 rounded-sm border border-gray-200 bg-white py-1.5 text-center text-sm text-gray-600 transition-all duration-100 focus:ring-3 focus:ring-emerald-500 focus:outline-none focus-visible:ring-offset-2';
-
+  const inputStyling = (fieldState) =>
+    cn(
+      'w-50 rounded-sm border border-gray-200 bg-white py-1.5 text-center text-sm text-gray-600 transition-all duration-100 focus:ring-3 focus:ring-emerald-500 focus:outline-none focus-visible:ring-offset-2',
+      fieldState.invalid && 'border-red-500',
+    );
   const configLookup = {
     initial: {
       labelText: 'Initial Miles',
       inputName: 'initialMiles',
       rules: {
         required: 'Please provide the starting odometer value',
-        validate: (values) => {},
+        validate: (initialMiles, { endingMiles }) => {
+          console.log({ initialMiles, endingMiles });
+          if (initialMiles === null) return 'Please provide the initial miles';
+          if (initialMiles < 0)
+            return 'Initial Miles can not be a negative number';
+
+          if (endingMiles !== null)
+            if (initialMiles === endingMiles || initialMiles > endingMiles)
+              return 'Ending miles must be greater than ending miles';
+        },
       },
       id: 'initial-odometer',
       placeholder: 'Starting miles...',
-      svg: (
+      svg: (fieldState) => (
         <Icon
           icon='solar:spedometer-low-broken'
           className={cn('text-gray-400')}
         />
       ),
-      className: cn(inputStyling),
+      className: inputStyling,
       asteriskStyling: cn('top-0 right-13.5'),
     },
 
@@ -49,20 +60,20 @@ const FormMilesInput = ({ mode }) => {
       },
       id: 'odometer-end',
       placeholder: 'Ending miles...',
-      svg: (
+      svg: (fieldState) => (
         <Icon
           icon='solar:spedometer-max-broken'
           className={cn('text-gray-400')}
         />
       ),
-      className: cn(inputStyling),
+      className: inputStyling,
       asteriskStyling: cn('top-0 right-11.75'),
     },
   };
   const {
     labelText,
     inputName,
-    required,
+    rules,
     id,
     placeholder,
     svg,
@@ -76,14 +87,14 @@ const FormMilesInput = ({ mode }) => {
         className='text-md relative text-center'
         htmlFor='initial-odometer'
       >
-        <Asterisk className={asteriskStyling || ''} />
+        <Asterisk className={asteriskStyling} />
         {labelText}
       </FieldLabel>
 
       <ControlledNumericField
         control={control}
         name={inputName}
-        rules={required}
+        rules={rules}
         id={id}
         placeholder={placeholder}
         svg={svg}

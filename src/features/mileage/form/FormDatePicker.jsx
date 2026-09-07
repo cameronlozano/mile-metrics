@@ -27,10 +27,7 @@ const FormDatePicker = () => {
           if (!isValid(inputDate)) return 'Date is an invalid date';
         },
       }}
-      render={({
-        field: { onChange, onBlur, value },
-        fieldState: { invalid },
-      }) => (
+      render={({ field: { onChange, onBlur, value }, fieldState }) => (
         <div className='flex flex-col gap-0.5'>
           <FieldLabel className='text-md relative text-center'>
             <Asterisk className='top-px right-19.25' />
@@ -42,11 +39,13 @@ const FormDatePicker = () => {
             onChange={onChange}
             onBlur={onBlur}
             label='Date'
+            isInvalid={fieldState.invalid}
+            fieldState={fieldState}
             classNames={{
               label: cn('sr-only'),
               group: cn(
                 'mx-auto flex w-50 gap-1.5 rounded-sm border border-gray-200 bg-white py-1.5 text-sm text-gray-500',
-                invalid && 'border-red-500',
+                fieldState.invalid && 'border-red-500',
               ),
               input: cn(
                 'flex justify-center focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-1',
@@ -56,6 +55,9 @@ const FormDatePicker = () => {
               ),
               placeholder: cn(
                 'rounded-xs text-gray-400 transition-all duration-100 outline-none focus-visible:ring-3 focus-visible:ring-emerald-500 focus-visible:ring-offset-1',
+              ),
+              fieldError: cn(
+                'absolute top-2 left-12 text-[0.625rem] text-nowrap text-red-500',
               ),
             }}
           >
@@ -69,7 +71,9 @@ const FormDatePicker = () => {
               )}
               trigger={
                 <CalendarFold
-                  className='mb-0.5 ml-0.5 cursor-pointer text-gray-400/80 transition-all duration-100 hover:scale-105 hover:text-gray-500 active:scale-95 active:text-gray-400'
+                  className={cn(
+                    'mb-0.5 ml-0.5 cursor-pointer text-gray-400/80 transition-all duration-100 hover:scale-105 hover:text-gray-500 active:scale-95 active:text-gray-400',
+                  )}
                   size={19}
                 />
               }

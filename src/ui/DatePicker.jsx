@@ -22,9 +22,16 @@ const DatePicker = ({
   label,
   classNames = {},
   children,
+  isInvalid,
+  fieldState,
 }) => {
   return (
-    <AriaDatePicker value={value} onChange={onChange} onBlur={onBlur}>
+    <AriaDatePicker
+      isInvalid={isInvalid}
+      value={value}
+      onChange={onChange}
+      onBlur={onBlur}
+    >
       <Label className={classNames.label}>{label}</Label>
       <Group
         className={twMerge('relative flex items-center', classNames.group)}
@@ -47,7 +54,11 @@ const DatePicker = ({
         </DateInput>
       </Group>
 
-      <FieldError />
+      <FieldError className='relative'>
+        <p className={classNames.fieldError}>
+          {fieldState.error?.message ?? ''}
+        </p>
+      </FieldError>
     </AriaDatePicker>
   );
 };
