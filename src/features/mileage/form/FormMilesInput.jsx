@@ -3,6 +3,7 @@ import FieldLabel from '../../../ui/FieldLabel';
 import handleError from '../../../utils/handleError';
 import ControlledNumericField from '../../../ui/ControlledNumericField';
 import Asterisk from '../../../ui/Asterisk';
+import cn from '../../../utils/cn';
 
 const FormMilesInput = ({ control, mode, getValues }) => {
   if (mode == null)
@@ -29,10 +30,15 @@ const FormMilesInput = ({ control, mode, getValues }) => {
       id: 'initial-odometer',
       placeholder: 'Starting miles...',
       svg: (
-        <Icon icon='solar:spedometer-low-broken' className='text-gray-400' />
+        <Icon
+          icon='solar:spedometer-low-broken'
+          className={cn('text-gray-400')}
+        />
       ),
-      className: inputStyling,
-      asteriskStyling: 'top-0 right-13.5 ',
+      className: cn(
+        'w-50 rounded-sm border border-gray-200 bg-white py-1.5 text-center text-sm text-gray-600 transition-all duration-100',
+        'focus:ring-3 focus:ring-emerald-500 focus:outline-none focus-visible:ring-offset-2',
+      ),
     },
 
     ending: {
@@ -47,13 +53,17 @@ const FormMilesInput = ({ control, mode, getValues }) => {
       id: 'odometer-end',
       placeholder: 'Ending miles...',
       svg: (
-        <Icon icon='solar:spedometer-max-broken' className='text-gray-400' />
+        <Icon
+          icon='solar:spedometer-max-broken'
+          className={cn('text-gray-400')}
+        />
       ),
-      className: inputStyling,
-      asteriskStyling: ' top-0 right-11.75 ',
+      className: cn(
+        'w-40 rounded-sm border border-gray-200 bg-white text-center text-sm text-gray-600 transition-all duration-100',
+        'focus:ring-3 focus:ring-emerald-500 focus:outline-none focus-visible:ring-offset-2',
+      ),
     },
   };
-
   const {
     labelText,
     inputName,
