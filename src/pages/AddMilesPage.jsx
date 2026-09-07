@@ -36,6 +36,9 @@ export default function AddMilesPage() {
     delayError: 100,
     defaultValues: {
       date: null,
+      initialMiles: null,
+      endingMiles: null,
+      notes: '',
       locations: [
         {
           country: null,
