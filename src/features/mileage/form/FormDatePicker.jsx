@@ -37,7 +37,6 @@ const FormDatePicker = () => {
             <Asterisk className='top-px right-19.25' />
             Date
           </FieldLabel>
-          {console.log({ hasError: invalid })}
 
           <DatePicker
             value={value}
