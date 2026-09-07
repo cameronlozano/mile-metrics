@@ -32,7 +32,7 @@ const FormMilesInput = ({ control, mode, getValues }) => {
         <Icon icon='solar:spedometer-low-broken' className='text-gray-400' />
       ),
       className: inputStyling,
-      asteriskStyling: 'absolute top-0 right-13 text-xs text-red-800/80',
+      asteriskStyling: 'top-0 right-13.5 ',
     },
 
     ending: {
@@ -50,7 +50,7 @@ const FormMilesInput = ({ control, mode, getValues }) => {
         <Icon icon='solar:spedometer-max-broken' className='text-gray-400' />
       ),
       className: inputStyling,
-      asteriskStyling: 'absolute top-0 right-11.25 text-xs text-red-800/80',
+      asteriskStyling: ' top-0 right-11.75 ',
     },
   };
 

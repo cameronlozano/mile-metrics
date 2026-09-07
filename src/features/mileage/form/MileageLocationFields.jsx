@@ -3,6 +3,7 @@ import Select from '../../../ui/Select';
 import useGetGeoOptions from '../../../hooks/useGetGeoOptions';
 import { ChevronUp } from 'lucide-react';
 import cn from '../../../utils/cn';
+import Asterisk from '../../../ui/Asterisk';
 
 const MileageLocationFields = ({ control, index, resetField }) => {
   const { countries, regions, localities } = useGetGeoOptions(control, index);
@@ -33,7 +34,7 @@ const MileageLocationFields = ({ control, index, resetField }) => {
         'text-md relative pb-1 text-center font-medium text-nowrap text-gray-600/90',
       ),
       input: cn(
-        'group cursor-pointer border border-gray-200 p-1.5 text-center text-sm text-slate-400 outline-none placeholder:text-gray-400 hover:bg-slate-100',
+        'group w-50 cursor-pointer border border-gray-200 p-1.5 text-center text-sm text-slate-400 outline-none placeholder:text-gray-400 hover:bg-slate-100',
       ),
       optionsPanel: cn(
         'z-50 !max-h-65 w-40 overflow-y-auto rounded-md border-gray-400 py-0.5 text-center outline-none',
@@ -48,28 +49,32 @@ const MileageLocationFields = ({ control, index, resetField }) => {
   return (
     <>
       {/* COUNTRY */}
-      <Controller
-        control={control}
-        name={`locations.${index}.country`}
-        rules={{
-          required: 'Please select the country...',
-        }}
-        render={({ field }) => (
-          <Select
-            {...sharedSelectProps}
-            options={countries.map((country) => country.name)}
-            optionsMessage='Select a country...'
-            label='Country'
-            inputPlaceholder='Select a country...'
-            value={field.value}
-            onChange={(value) => {
-              resetField(`locations.${index}.region`);
-              resetField(`locations.${index}.locality`);
-              field.onChange(value);
-            }}
-          />
-        )}
-      />
+      <div className='relative'>
+        <Asterisk className='top-px right-15.5' />
+
+        <Controller
+          control={control}
+          name={`locations.${index}.country`}
+          rules={{
+            required: 'Please select the country...',
+          }}
+          render={({ field }) => (
+            <Select
+              {...sharedSelectProps}
+              options={countries.map((country) => country.name)}
+              optionsMessage='Select a country...'
+              label='Country'
+              inputPlaceholder='Select a country...'
+              value={field.value}
+              onChange={(value) => {
+                resetField(`locations.${index}.region`);
+                resetField(`locations.${index}.locality`);
+                field.onChange(value);
+              }}
+            />
+          )}
+        />
+      </div>
       {/* REGION */}
       <Controller
         control={control}
@@ -77,25 +82,29 @@ const MileageLocationFields = ({ control, index, resetField }) => {
         rules={{ required: 'Please select the region...' }}
         render={({ field }) => {
           return (
-            <Select
-              {...sharedSelectProps}
-              options={regions.map((region) => region.name)}
-              label={'Region'}
-              optionsMessage={
-                !selectedCountry
-                  ? 'Select a country...'
-                  : regions.length < 1
-                    ? 'No regions found...'
-                    : 'Select a region...'
-              }
-              inputPlaceholder={'Select a region...'}
-              value={field.value}
-              onChange={(value) => {
-                resetField(`locations.${index}.locality`);
+            <div className='relative'>
+              <Asterisk className='top-px right-16.75' />
 
-                field.onChange(value);
-              }}
-            />
+              <Select
+                {...sharedSelectProps}
+                options={regions.map((region) => region.name)}
+                label={'Region'}
+                optionsMessage={
+                  !selectedCountry
+                    ? 'Select a country...'
+                    : regions.length < 1
+                      ? 'No regions found...'
+                      : 'Select a region...'
+                }
+                inputPlaceholder={'Select a region...'}
+                value={field.value}
+                onChange={(value) => {
+                  resetField(`locations.${index}.locality`);
+
+                  field.onChange(value);
+                }}
+              />
+            </div>
           );
         }}
       />
@@ -105,23 +114,27 @@ const MileageLocationFields = ({ control, index, resetField }) => {
         name={`locations.${index}.locality`}
         rules={{ required: 'Please select the locality' }}
         render={({ field }) => (
-          <Select
-            {...sharedSelectProps}
-            options={localities.map((locality) => locality.name)}
-            label={'Locality'}
-            optionsMessage={
-              !selectedCountry
-                ? 'Select a country...'
-                : !selectedRegion
-                  ? 'Select a region...'
-                  : localities.length < 1
-                    ? 'No localities found...'
-                    : 'Select a locality...'
-            }
-            inputPlaceholder={'Select a locality...'}
-            value={field.value}
-            onChange={field.onChange}
-          />
+          <div className='relative'>
+            <Asterisk className='right-15.5' />
+
+            <Select
+              {...sharedSelectProps}
+              options={localities.map((locality) => locality.name)}
+              label={'Locality'}
+              optionsMessage={
+                !selectedCountry
+                  ? 'Select a country...'
+                  : !selectedRegion
+                    ? 'Select a region...'
+                    : localities.length < 1
+                      ? 'No localities found...'
+                      : 'Select a locality...'
+              }
+              inputPlaceholder={'Select a locality...'}
+              value={field.value}
+              onChange={field.onChange}
+            />
+          </div>
         )}
       />
     </>

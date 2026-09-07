@@ -34,7 +34,7 @@ const FormDatePicker = () => {
       }) => (
         <div className='flex flex-col gap-0.5'>
           <FieldLabel className='text-md relative text-center'>
-            <Asterisk className='absolute top-0 right-19 text-xs text-red-800/80' />
+            <Asterisk className='top-px right-19.25' />
             Date
           </FieldLabel>
           {console.log({ hasError: invalid })}
