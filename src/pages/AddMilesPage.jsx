@@ -10,10 +10,10 @@ import { FormContext } from '../features/mileage/form/FormContext';
 import FormHeader from '../features/mileage/form/FormHeader';
 import FormDatePicker from '../features/mileage/form/FormDatePicker';
 import FormMilesInput from '../features/mileage/form/FormMilesInput';
-import LocationEntry from '../features/mileage/form/LocationEntry';
+import FormLocationEntry from '../features/mileage/form/FormLocationEntry';
 import AddLocationButton from '../features/mileage/form/AddLocationButton';
 import FormNotes from '../features/mileage/form/FormNotes';
-import SubmitButton from '../features/mileage/form/SubmitButton';
+import FormSubmitButton from '../features/mileage/form/FormSubmitButton';
 
 export default function AddMilesPage() {
   const queryClient = useQueryClient();
@@ -143,7 +143,7 @@ export default function AddMilesPage() {
               onKeyDownCapture={handleKeyDownCapture}
               className='mb-5 flex flex-col pb-4.5'
             >
-              <LocationEntry />
+              <FormLocationEntry />
 
               <AddLocationButton />
             </div>
@@ -154,7 +154,7 @@ export default function AddMilesPage() {
             </div>
 
             {/* Submit */}
-            <SubmitButton />
+            <FormSubmitButton />
           </div>
         </div>
       </Form>

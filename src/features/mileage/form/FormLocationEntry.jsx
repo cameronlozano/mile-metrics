@@ -2,7 +2,7 @@ import MileageLocationFields from './MileageLocationFields';
 import FormTiles from './FormTiles';
 import { useFormContext } from './FormContext';
 
-const LocationEntry = () => {
+const FormLocationEntry = () => {
   const { control, fields, resetField } = useFormContext();
 
   return (
@@ -36,4 +36,4 @@ const LocationEntry = () => {
   );
 };
 
-export default LocationEntry;
+export default FormLocationEntry;

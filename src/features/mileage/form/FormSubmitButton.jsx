@@ -1,7 +1,7 @@
 import { Button } from 'react-aria-components';
 import { useFormContext } from './FormContext';
 
-const SubmitButton = () => {
+const FormSubmitButton = () => {
   const { isSubmitting } = useFormContext();
 
   return (
@@ -15,4 +15,4 @@ const SubmitButton = () => {
   );
 };
 
-export default SubmitButton;
+export default FormSubmitButton;
