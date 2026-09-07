@@ -7,7 +7,7 @@ import cn from '../../../utils/cn';
 import { useFormContext } from './FormContext';
 
 const FormMilesInput = ({ mode }) => {
-  const { control, getValues } = useFormContext();
+  const { control } = useFormContext();
 
   if (mode == null)
     handleError('FormMilesInput requires a mode to be set', {
@@ -21,25 +21,29 @@ const FormMilesInput = ({ mode }) => {
       fieldState.invalid && 'border-red-500',
     );
   const configLookup = {
+    // INITIAL STYLING
     initial: {
       labelText: 'Initial Miles',
       inputName: 'initialMiles',
       rules: {
         required: 'Please provide the starting odometer value',
         validate: (initialMiles, { endingMiles }) => {
-          console.log({ initialMiles, endingMiles });
-          if (initialMiles === null) return 'Please provide the initial miles';
+          const hasInitialMiles = initialMiles !== null;
+          const hasEndingMiles = endingMiles !== null;
+
+          if (!hasInitialMiles) return 'Please provide the initial miles';
           if (initialMiles < 0)
             return 'Initial Miles can not be a negative number';
 
-          if (endingMiles !== null)
-            if (initialMiles === endingMiles || initialMiles > endingMiles)
-              return 'Ending miles must be greater than ending miles';
+          if (hasEndingMiles && initialMiles >= endingMiles)
+            return 'Ending miles must be greater than starting miles';
+
+          return true;
         },
       },
       id: 'initial-odometer',
       placeholder: 'Starting miles...',
-      svg: (fieldState) => (
+      svg: () => (
         <Icon
           icon='solar:spedometer-low-broken'
           className={cn('text-gray-400')}
@@ -49,18 +53,30 @@ const FormMilesInput = ({ mode }) => {
       asteriskStyling: cn('top-0 right-13.5'),
     },
 
+    // ENDING STYLING
     ending: {
       labelText: 'Ending Miles',
       inputName: 'endingMiles',
       rules: {
         required: 'Please provide the ending odometer value',
-        validate: (value) =>
-          Number(value) > Number(getValues('initialMiles')) ||
-          'Ending miles must be greater than starting miles',
+        validate: (endingMiles, { initialMiles }) => {
+          const hasEndingMiles = endingMiles !== null;
+          const hasInitialMiles = initialMiles !== null;
+
+          if (!hasEndingMiles) return 'Please provide the ending miles';
+
+          if (endingMiles < 0)
+            return 'Ending miles cannot be a negative number';
+
+          if (hasInitialMiles && endingMiles <= initialMiles)
+            return 'Ending miles must be greater than starting miles';
+
+          return true;
+        },
       },
       id: 'odometer-end',
       placeholder: 'Ending miles...',
-      svg: (fieldState) => (
+      svg: () => (
         <Icon
           icon='solar:spedometer-max-broken'
           className={cn('text-gray-400')}
