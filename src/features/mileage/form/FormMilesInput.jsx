@@ -15,6 +15,9 @@ const FormMilesInput = ({ control, mode, getValues }) => {
       mode,
     });
 
+  const inputStyling =
+    'w-50 rounded-sm border border-gray-200 bg-white py-1.5 text-center text-sm text-gray-600 transition-all duration-100 focus:ring-3 focus:ring-emerald-500 focus:outline-none focus-visible:ring-offset-2';
+
   const configLookup = {
     initial: {
       labelText: 'Initial Miles',
@@ -27,8 +30,7 @@ const FormMilesInput = ({ control, mode, getValues }) => {
       svg: (
         <Icon icon='solar:spedometer-low-broken' className='text-gray-400' />
       ),
-      className:
-        'w-40 rounded-sm border border-gray-200 bg-white py-0.5 text-center text-sm text-gray-600 transition-all duration-100 focus:ring-3 focus:ring-emerald-500 focus:outline-none focus-visible:ring-offset-2',
+      className: inputStyling,
     },
 
     ending: {
@@ -45,8 +47,7 @@ const FormMilesInput = ({ control, mode, getValues }) => {
       svg: (
         <Icon icon='solar:spedometer-max-broken' className='text-gray-400' />
       ),
-      className:
-        'w-40 rounded-sm border border-gray-200 bg-white py-0.5 text-center text-sm text-gray-600 transition-all duration-100 focus:ring-3 focus:ring-emerald-500 focus:outline-none focus-visible:ring-offset-2',
+      className: inputStyling,
     },
   };
 

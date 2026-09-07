@@ -35,7 +35,7 @@ const FormDatePicker = () => {
           <FieldLabel className='text-md relative text-center'>
             <span
               aria-hidden={true}
-              className='absolute top-0.5 right-13 text-xs text-red-800'
+              className='absolute top-0 right-19 text-xs text-red-800/80'
             >
               *
             </span>
@@ -51,7 +51,7 @@ const FormDatePicker = () => {
             classNames={{
               label: cn('sr-only'),
               group: cn(
-                'mx-auto flex w-40 gap-1.5 rounded-sm border border-gray-200 bg-white p-1 text-sm text-gray-500',
+                'mx-auto flex w-50 gap-1.5 rounded-sm border border-gray-200 bg-white py-1.5 text-sm text-gray-500',
                 invalid && 'border-red-500',
               ),
               input: cn(
@@ -75,7 +75,7 @@ const FormDatePicker = () => {
               )}
               trigger={
                 <CalendarFold
-                  className='ml-0.5 cursor-pointer text-gray-400/80 transition-all duration-100 hover:scale-105 hover:text-gray-500 active:scale-95 active:text-gray-400'
+                  className='mb-0.5 ml-0.5 cursor-pointer text-gray-400/80 transition-all duration-100 hover:scale-105 hover:text-gray-500 active:scale-95 active:text-gray-400'
                   size={19}
                 />
               }

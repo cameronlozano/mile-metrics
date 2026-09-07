@@ -61,15 +61,15 @@ const FormTiles = ({ control, index }) => {
               },
             ]}
             classNames={{
+              radioGroup: cn('flex justify-center gap-25'),
               radioLabel: cn('sr-only'),
-              radioGroup: cn('flex justify-evenly'),
               radioField: cn(''),
               radioButton: cn(
-                'group flex cursor-pointer place-items-center gap-2 rounded-sm border border-gray-300 px-1.5 py-0.5 text-sm tracking-tighter text-gray-500 transition-all duration-90 hover:scale-105 active:scale-90 active:text-gray-400 data-focus-visible:ring-2 data-focus-visible:ring-emerald-500 data-hovered:scale-105 data-hovered:text-gray-600 data-selected:border-emerald-600 data-selected:font-medium data-selected:text-emerald-700',
+                'group flex cursor-pointer place-items-center gap-2 rounded-sm border border-gray-300 px-5 py-1.5 text-sm tracking-tighter text-gray-500 transition-all duration-90 hover:scale-105 active:scale-90 active:text-gray-400 data-focus-visible:ring-2 data-focus-visible:ring-emerald-500 data-hovered:scale-105 data-hovered:text-gray-600 data-selected:border-emerald-600 data-selected:bg-emerald-100/50 data-selected:font-medium data-selected:text-emerald-700',
               ),
 
               textInputContainer: cn(
-                'group rounded-sm border border-gray-300 px-1 py-px focus-within:border-emerald-600 data-selected:border-emerald-600',
+                'group w-40 rounded-sm border border-gray-300 py-1 focus-within:border-emerald-600 data-selected:border-emerald-600',
               ),
               textInput: cn(
                 'group font-medium text-gray-500 group-data-selected:text-emerald-700 focus-within:text-emerald-700 data-selected:placeholder:text-gray-400',

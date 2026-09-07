@@ -3,12 +3,12 @@ import FormTiles from './FormTiles';
 
 const LocationEntry = ({ fields, control, resetField }) => {
   return (
-    <div className='relative mb-7 h-37 snap-y snap-mandatory scrollbar-gutter-stable overflow-y-auto'>
+    <div className='relative mb-4 h-45 snap-y snap-mandatory scrollbar-gutter-stable overflow-y-auto'>
       {fields.map((field, index) => (
         <div key={field.id} className='h-full shrink-0 snap-start'>
           {/* Location counter */}
           <div>
-            <p className='px-1 py-px text-sm font-semibold tracking-tight text-gray-400'>
+            <p className='pl-3 text-sm font-semibold tracking-tight text-gray-500'>
               {`Location ${index + 1}`}
             </p>
           </div>

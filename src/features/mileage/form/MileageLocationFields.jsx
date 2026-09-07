@@ -27,13 +27,13 @@ const MileageLocationFields = ({ control, index, resetField }) => {
       />
     ),
     classNames: {
-      container: cn('font-data w-40'),
-      optionsMessage: cn('px-1 py-0.5 text-sm text-gray-400'),
+      container: cn('font-data w-50'),
+      optionsMessage: cn('text-sm text-gray-400'),
       label: cn(
-        'text-md relative pb-0.5 text-center font-medium text-nowrap text-gray-600/90',
+        'text-md relative pb-1 text-center font-medium text-nowrap text-gray-600/90',
       ),
       input: cn(
-        'group cursor-pointer border border-gray-200 p-1 text-center text-sm text-slate-400 outline-none placeholder:text-gray-400 hover:bg-slate-100',
+        'group cursor-pointer border border-gray-200 p-1.5 text-center text-sm text-slate-400 outline-none placeholder:text-gray-400 hover:bg-slate-100',
       ),
       optionsPanel: cn(
         'z-50 !max-h-65 w-40 overflow-y-auto rounded-md border-gray-400 py-0.5 text-center outline-none',

@@ -113,7 +113,7 @@ export default function AddMilesPage() {
           </div>
 
           {/* content container */}
-          <div className='flex w-4xl flex-col justify-center divide-y-2 divide-gray-200'>
+          <div className='flex w-6xl flex-col justify-center divide-y-2 divide-gray-200'>
             {/* Datepicker & mileage inputs */}
             <div className='mb-4 flex justify-evenly pb-6'>
               {/* Date input */}
