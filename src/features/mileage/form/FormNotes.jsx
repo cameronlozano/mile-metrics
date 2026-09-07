@@ -1,6 +1,8 @@
 import FieldLabel from '../../../ui/FieldLabel';
+import { useFormContext } from './FormContext';
 
-const FormNotes = ({ register }) => {
+const FormNotes = () => {
+  const { register } = useFormContext();
   return (
     <>
       <FieldLabel className='text-center' htmlFor='notes'>

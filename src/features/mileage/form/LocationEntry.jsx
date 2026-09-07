@@ -1,7 +1,10 @@
 import MileageLocationFields from './MileageLocationFields';
 import FormTiles from './FormTiles';
+import { useFormContext } from './FormContext';
 
-const LocationEntry = ({ fields, control, resetField }) => {
+const LocationEntry = () => {
+  const { control, fields, resetField } = useFormContext();
+
   return (
     // Scrolling container
     <div className='relative mb-3 h-45 snap-y snap-mandatory scrollbar-gutter-stable overflow-y-auto'>

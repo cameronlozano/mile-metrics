@@ -1,19 +1,19 @@
-import { Form } from 'react-router';
 import { useFieldArray, useForm } from 'react-hook-form';
 import { useQueryClient } from '@tanstack/react-query';
-import SubmitButton from '../features/mileage/form/SubmitButton';
+import { Form } from 'react-router';
+import { useRef } from 'react';
+import toast from 'react-hot-toast';
+
+import { insertMileageEntry } from '../features/mileage/mileageApi';
+import { FormContext } from '../features/mileage/form/FormContext';
 
 import FormHeader from '../features/mileage/form/FormHeader';
 import FormDatePicker from '../features/mileage/form/FormDatePicker';
 import FormMilesInput from '../features/mileage/form/FormMilesInput';
-import FormNotes from '../features/mileage/form/FormNotes';
-import AddLocationButton from '../features/mileage/form/AddLocationButton';
-import { useRef } from 'react';
 import LocationEntry from '../features/mileage/form/LocationEntry';
-import { FormContext } from '../features/mileage/form/FormContext';
-import toast from 'react-hot-toast';
-
-import { insertMileageEntry } from '../features/mileage/mileageApi';
+import AddLocationButton from '../features/mileage/form/AddLocationButton';
+import FormNotes from '../features/mileage/form/FormNotes';
+import SubmitButton from '../features/mileage/form/SubmitButton';
 
 export default function AddMilesPage() {
   const queryClient = useQueryClient();
@@ -101,7 +101,19 @@ export default function AddMilesPage() {
   };
 
   return (
-    <FormContext.Provider value={{ radioGroupRef, control }}>
+    <FormContext.Provider
+      value={{
+        control,
+        fields,
+        isSubmitting,
+        register,
+        getValues,
+        resetField,
+        append,
+        radioGroupRef,
+        addLocationRef,
+      }}
+    >
       <Form
         onSubmit={handleSubmit(onSubmit, onError)}
         className='flex w-full justify-center'
@@ -120,18 +132,10 @@ export default function AddMilesPage() {
               <FormDatePicker />
 
               {/* Initial Miles input */}
-              <FormMilesInput
-                control={control}
-                mode='initial'
-                getValues={getValues}
-              />
+              <FormMilesInput mode='initial' />
 
               {/* Ending Miles input */}
-              <FormMilesInput
-                control={control}
-                mode='ending'
-                getValues={getValues}
-              />
+              <FormMilesInput mode='ending' />
             </div>
 
             {/* Location Selection & tags */}
@@ -139,22 +143,18 @@ export default function AddMilesPage() {
               onKeyDownCapture={handleKeyDownCapture}
               className='mb-5 flex flex-col pb-4.5'
             >
-              <LocationEntry
-                fields={fields}
-                control={control}
-                resetField={resetField}
-              />
+              <LocationEntry />
 
-              <AddLocationButton ref={addLocationRef} append={append} />
+              <AddLocationButton />
             </div>
 
             {/* Notes */}
             <div className='mb-5 flex flex-col gap-1.5 pb-10'>
-              <FormNotes register={register} />
+              <FormNotes />
             </div>
 
             {/* Submit */}
-            <SubmitButton isSubmitting={isSubmitting} />
+            <SubmitButton />
           </div>
         </div>
       </Form>

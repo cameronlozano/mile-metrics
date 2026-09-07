@@ -1,6 +1,9 @@
 import { Button } from 'react-aria-components';
+import { useFormContext } from './FormContext';
 
-const SubmitButton = ({ isSubmitting }) => {
+const SubmitButton = () => {
+  const { isSubmitting } = useFormContext();
+
   return (
     <Button
       type='submit'

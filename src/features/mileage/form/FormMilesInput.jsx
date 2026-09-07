@@ -4,15 +4,13 @@ import handleError from '../../../utils/handleError';
 import ControlledNumericField from '../../../ui/ControlledNumericField';
 import Asterisk from '../../../ui/Asterisk';
 import cn from '../../../utils/cn';
+import { useFormContext } from './FormContext';
 
-const FormMilesInput = ({ control, mode, getValues }) => {
+const FormMilesInput = ({ mode }) => {
+  const { control, getValues } = useFormContext();
+
   if (mode == null)
     handleError('FormMilesInput requires a mode to be set', {
-      control,
-      mode,
-    });
-  if (control == null)
-    handleError('FormMilesInput requires a control argument', {
       control,
       mode,
     });
