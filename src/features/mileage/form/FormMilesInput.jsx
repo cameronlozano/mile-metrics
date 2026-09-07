@@ -2,6 +2,7 @@ import { Icon } from '@iconify/react';
 import FieldLabel from '../../../ui/FieldLabel';
 import handleError from '../../../utils/handleError';
 import ControlledNumericField from '../../../ui/ControlledNumericField';
+import Asterisk from '../../../ui/Asterisk';
 
 const FormMilesInput = ({ control, mode, getValues }) => {
   if (mode == null)
@@ -31,6 +32,7 @@ const FormMilesInput = ({ control, mode, getValues }) => {
         <Icon icon='solar:spedometer-low-broken' className='text-gray-400' />
       ),
       className: inputStyling,
+      asteriskStyling: 'absolute top-0 right-13 text-xs text-red-800/80',
     },
 
     ending: {
@@ -48,15 +50,28 @@ const FormMilesInput = ({ control, mode, getValues }) => {
         <Icon icon='solar:spedometer-max-broken' className='text-gray-400' />
       ),
       className: inputStyling,
+      asteriskStyling: 'absolute top-0 right-11.25 text-xs text-red-800/80',
     },
   };
 
-  const { labelText, inputName, required, id, placeholder, svg, className } =
-    configLookup[mode];
+  const {
+    labelText,
+    inputName,
+    required,
+    id,
+    placeholder,
+    svg,
+    className,
+    asteriskStyling,
+  } = configLookup[mode];
 
   return (
     <div className='flex flex-col gap-1 text-center'>
-      <FieldLabel className='text-md text-center' htmlFor='initial-odometer'>
+      <FieldLabel
+        className='text-md relative text-center'
+        htmlFor='initial-odometer'
+      >
+        <Asterisk className={asteriskStyling || ''} />
         {labelText}
       </FieldLabel>
 

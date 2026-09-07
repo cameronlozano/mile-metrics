@@ -6,6 +6,7 @@ import Calendar from '../../../ui/Calendar';
 import { Controller } from 'react-hook-form';
 import { useFormContext } from './FormContext';
 import { isFuture, isValid } from 'date-fns';
+import Asterisk from '../../../ui/Asterisk';
 
 const FormDatePicker = () => {
   const { control } = useFormContext();
@@ -33,12 +34,7 @@ const FormDatePicker = () => {
       }) => (
         <div className='flex flex-col gap-0.5'>
           <FieldLabel className='text-md relative text-center'>
-            <span
-              aria-hidden={true}
-              className='absolute top-0 right-19 text-xs text-red-800/80'
-            >
-              *
-            </span>
+            <Asterisk className='absolute top-0 right-19 text-xs text-red-800/80' />
             Date
           </FieldLabel>
           {console.log({ hasError: invalid })}
