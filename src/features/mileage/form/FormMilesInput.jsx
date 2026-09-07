@@ -35,10 +35,8 @@ const FormMilesInput = ({ control, mode, getValues }) => {
           className={cn('text-gray-400')}
         />
       ),
-      className: cn(
-        'w-50 rounded-sm border border-gray-200 bg-white py-1.5 text-center text-sm text-gray-600 transition-all duration-100',
-        'focus:ring-3 focus:ring-emerald-500 focus:outline-none focus-visible:ring-offset-2',
-      ),
+      className: cn(inputStyling),
+      asteriskStyling: cn('top-0 right-13.5'),
     },
 
     ending: {
@@ -58,10 +56,8 @@ const FormMilesInput = ({ control, mode, getValues }) => {
           className={cn('text-gray-400')}
         />
       ),
-      className: cn(
-        'w-40 rounded-sm border border-gray-200 bg-white text-center text-sm text-gray-600 transition-all duration-100',
-        'focus:ring-3 focus:ring-emerald-500 focus:outline-none focus-visible:ring-offset-2',
-      ),
+      className: cn(inputStyling),
+      asteriskStyling: cn('top-0 right-11.75'),
     },
   };
   const {
