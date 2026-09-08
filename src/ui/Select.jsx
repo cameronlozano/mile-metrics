@@ -3,6 +3,7 @@ import { useState } from 'react';
 import {
   Button,
   ComboBox,
+  FieldError,
   Group,
   Input,
   Label,
@@ -21,6 +22,7 @@ const Select = ({
   label,
   toggleIndicator = <ChevronDown />,
   classNames = {},
+  fieldState,
 }) => {
   const [query, setQuery] = useState('');
 
@@ -33,6 +35,11 @@ const Select = ({
 
   const hasOptions = filteredOptions.length > 0;
 
+  const resolver = (prop) =>
+    typeof prop === 'function' ? prop(fieldState) : prop;
+
+  const resolvedInputClassName = resolver(classNames.input);
+
   return (
     <ComboBox
       menuTrigger='focus'
@@ -44,10 +51,15 @@ const Select = ({
       }}
       inputValue={query}
       onInputChange={setQuery}
+      isInvalid={fieldState.invalid}
     >
       <div className='relative flex flex-col'>
         {label && <Label className={classNames.label}>{label}</Label>}
 
+        {console.log({
+          isSelectInvalid: fieldState.invalid,
+          error: fieldState.error?.message,
+        })}
         <Group>
           <Input
             spellCheck={false}
@@ -55,17 +67,23 @@ const Select = ({
             placeholder={inputPlaceholder || '...select an option...'}
             className={cn(
               `w-full rounded-sm bg-white ${toggleIndicator ? 'pr-8' : ''}`,
-              classNames.input,
+              resolvedInputClassName,
               value && classNames.selectedInput,
             )}
           />
           <Button>
             {toggleIndicator && (
-              <span className='absolute top-8.5 -right-8 flex cursor-pointer items-center px-2'>
+              <span className='absolute top-8.75 -right-6 flex cursor-pointer items-center'>
                 {toggleIndicator}
               </span>
             )}
           </Button>
+
+          <FieldError className={classNames.fieldErrorContainer}>
+            <p className={classNames.fieldError}>
+              {fieldState?.error?.message}
+            </p>
+          </FieldError>
         </Group>
 
         <Popover>

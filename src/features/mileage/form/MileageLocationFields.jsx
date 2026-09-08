@@ -19,28 +19,31 @@ const MileageLocationFields = ({ control, index, resetField }) => {
   });
 
   const sharedSelectProps = {
-    portal: true,
-    anchor: 'bottom-start',
     toggleIndicator: (
       <ChevronUp
-        size={23}
+        size={20}
         className='text-gray-500 transition-all group-data-open:rotate-540'
       />
     ),
     classNames: {
-      container: cn('font-data w-50'),
-      optionsMessage: cn('text-sm text-gray-400'),
+      container: cn('group font-data w-50'),
       label: cn(
         'text-md relative pb-1 text-center font-medium text-nowrap text-gray-600/90',
       ),
-      input: cn(
-        'group w-50 cursor-pointer border border-gray-200 p-1.5 text-center text-sm text-slate-400 outline-none placeholder:text-gray-400 hover:bg-slate-100',
-      ),
+      input: (fieldState) =>
+        cn(
+          'group w-50 cursor-pointer border border-gray-200 p-1.5 text-center text-sm text-slate-400 outline-none placeholder:text-gray-400 hover:bg-slate-100',
+          fieldState.invalid && 'border-red-500',
+        ),
       optionsPanel: cn(
-        'z-50 !max-h-65 w-40 overflow-y-auto rounded-md border-gray-400 py-0.5 text-center outline-none',
+        'z-50 max-h-60 w-50 cursor-pointer overflow-y-auto rounded-md border border-gray-300 bg-gray-50 py-0.5 text-center outline-none',
       ),
       option: cn(
-        'px-1 py-0.5 text-gray-600 capitalize hover:bg-slate-100 hover:text-slate-700 active:bg-slate-200 data-focus:bg-slate-200',
+        'px-1 py-0.5 text-sm text-gray-600 capitalize hover:bg-slate-100 hover:text-slate-700 active:bg-slate-200 data-focused:bg-emerald-200',
+      ),
+      fieldErrorContainer: 'relative',
+      fieldError: cn(
+        'absolute top-8.5 right-10 text-[0.625rem] tracking-tighter text-nowrap text-red-500',
       ),
       selectedInput: cn('text-gray-700'),
     },
@@ -58,21 +61,24 @@ const MileageLocationFields = ({ control, index, resetField }) => {
           rules={{
             required: 'Please select the country...',
           }}
-          render={({ field }) => (
-            <Select
-              {...sharedSelectProps}
-              options={countries.map((country) => country.name)}
-              optionsMessage='Select a country...'
-              label='Country'
-              inputPlaceholder='Select a country...'
-              value={field.value}
-              onChange={(value) => {
-                resetField(`locations.${index}.region`);
-                resetField(`locations.${index}.locality`);
-                field.onChange(value);
-              }}
-            />
-          )}
+          render={({ field, fieldState }) => {
+            return (
+              <Select
+                {...sharedSelectProps}
+                options={countries.map((country) => country.name)}
+                optionsMessage='Select a country...'
+                label='Country'
+                inputPlaceholder='Select a country...'
+                value={field.value}
+                onChange={(value) => {
+                  resetField(`locations.${index}.region`);
+                  resetField(`locations.${index}.locality`);
+                  field.onChange(value);
+                }}
+                fieldState={fieldState}
+              />
+            );
+          }}
         />
       </div>
       {/* REGION */}
@@ -80,7 +86,7 @@ const MileageLocationFields = ({ control, index, resetField }) => {
         control={control}
         name={`locations.${index}.region`}
         rules={{ required: 'Please select the region...' }}
-        render={({ field }) => {
+        render={({ field, fieldState }) => {
           return (
             <div className='relative'>
               <Asterisk className='top-px right-16.75' />
@@ -103,6 +109,7 @@ const MileageLocationFields = ({ control, index, resetField }) => {
 
                   field.onChange(value);
                 }}
+                fieldState={fieldState}
               />
             </div>
           );
@@ -113,7 +120,7 @@ const MileageLocationFields = ({ control, index, resetField }) => {
         control={control}
         name={`locations.${index}.locality`}
         rules={{ required: 'Please select the locality' }}
-        render={({ field }) => (
+        render={({ field, fieldState }) => (
           <div className='relative'>
             <Asterisk className='right-15.5' />
 
@@ -133,6 +140,7 @@ const MileageLocationFields = ({ control, index, resetField }) => {
               inputPlaceholder={'Select a locality...'}
               value={field.value}
               onChange={field.onChange}
+              fieldState={fieldState}
             />
           </div>
         )}
