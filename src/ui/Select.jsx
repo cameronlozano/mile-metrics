@@ -1,17 +1,18 @@
-import {
-  Combobox,
-  ComboboxButton,
-  ComboboxInput,
-  ComboboxOption,
-  ComboboxOptions,
-} from '@headlessui/react';
 import { ChevronDown } from 'lucide-react';
 import { useState } from 'react';
-import { twMerge } from 'tailwind-merge';
+import {
+  Button,
+  ComboBox,
+  Group,
+  Input,
+  Label,
+  ListBox,
+  ListBoxItem,
+  Popover,
+} from 'react-aria-components';
+import cn from '../utils/cn';
 
 const Select = ({
-  portal,
-  anchor,
   options,
   value,
   onChange,
@@ -30,68 +31,64 @@ const Select = ({
           option.toLowerCase().includes(query.toLowerCase()),
         );
 
+  const hasOptions = filteredOptions.length > 0;
+
   return (
-    <Combobox
-      immediate
+    <ComboBox
+      menuTrigger='focus'
+      className={classNames.container}
       value={value}
-      onChange={onChange}
-      onClose={() => setQuery('')}
+      onChange={(value) => {
+        onChange(value);
+        setQuery(value ?? '');
+      }}
+      inputValue={query}
+      onInputChange={setQuery}
     >
       <div className='relative flex flex-col'>
-        {label && <label className={classNames.label}>{label}</label>}
+        {label && <Label className={classNames.label}>{label}</Label>}
 
-        <div className='relative'>
-          <ComboboxInput
+        <Group>
+          <Input
             spellCheck={false}
-            autoCorrect='off'
-            className={twMerge(
+            autoCorrect='false'
+            placeholder={inputPlaceholder || '...select an option...'}
+            className={cn(
               `w-full rounded-sm bg-white ${toggleIndicator ? 'pr-8' : ''}`,
               classNames.input,
               value && classNames.selectedInput,
             )}
-            displayValue={(option) => option ?? ''}
-            placeholder={inputPlaceholder || '...select an option...'}
-            onChange={(event) => setQuery(event.target.value)}
           />
+          <Button>
+            {toggleIndicator && (
+              <span className='absolute top-8.5 -right-8 flex cursor-pointer items-center px-2'>
+                {toggleIndicator}
+              </span>
+            )}
+          </Button>
+        </Group>
 
-          {toggleIndicator && (
-            <ComboboxButton className='group absolute inset-y-0 -right-9 flex items-center px-2'>
-              {toggleIndicator}
-            </ComboboxButton>
-          )}
-        </div>
-
-        <ComboboxOptions
-          portal={portal}
-          anchor={anchor}
-          className={twMerge('z-50 border bg-white', classNames.optionsPanel)}
-        >
-          {optionsMessage && (
-            <div
-              className={twMerge('w-full bg-white', classNames.optionsMessage)}
-            >
-              {optionsMessage}
-            </div>
-          )}
-
-          {filteredOptions?.length ? (
-            filteredOptions.map((option) => (
-              <ComboboxOption
-                key={option}
-                value={option}
-                className={twMerge('cursor-pointer', classNames.option)}
-              >
-                {option}
-              </ComboboxOption>
-            ))
-          ) : (
-            <div className={twMerge('text-sm text-pretty', classNames.option)}>
-              No options available
-            </div>
-          )}
-        </ComboboxOptions>
+        <Popover>
+          <ListBox className={classNames.optionsPanel}>
+            {hasOptions ? (
+              filteredOptions.map((option) => (
+                <ListBoxItem
+                  key={option}
+                  id={option}
+                  className={classNames.option}
+                >
+                  {option}
+                </ListBoxItem>
+              ))
+            ) : (
+              <ListBoxItem isDisabled={true} className={classNames.option}>
+                {optionsMessage}
+              </ListBoxItem>
+            )}
+          </ListBox>
+        </Popover>
       </div>
-    </Combobox>
+    </ComboBox>
   );
 };
 
