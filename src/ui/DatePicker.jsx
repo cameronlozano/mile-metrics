@@ -40,8 +40,6 @@ const DatePicker = ({
         <DateInput className={twMerge('flex w-full', classNames.input)}>
           {(segment) => (
             <DateSegment
-              onChange={() => console.log('changed')}
-
               segment={segment}
               className={({ isPlaceholder }) =>
                 twMerge(
