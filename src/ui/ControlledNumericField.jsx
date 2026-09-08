@@ -41,7 +41,7 @@ const ControlledNumericField = ({
               />
 
               {fieldState.error && (
-                <p className='absolute top-10 left-0 text-[0.625rem] text-nowrap text-red-500'>
+                <p className='absolute top-10 left-2.5 text-[0.625rem] tracking-tighter text-nowrap text-red-500'>
                   {fieldState.error.message}
                 </p>
               )}
