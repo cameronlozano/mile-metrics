@@ -7,7 +7,7 @@ const FormLocationEntry = () => {
 
   return (
     // Scrolling container
-    <div className='relative mb-3 h-45 snap-y snap-mandatory scrollbar-gutter-stable overflow-y-auto'>
+    <div className='relative mb-3 h-47 snap-y snap-mandatory scrollbar-gutter-stable overflow-y-auto'>
       {fields.map((field, index) => (
         <div key={field.id} className='h-full shrink-0 snap-start'>
           {/* Location counter */}
@@ -27,9 +27,7 @@ const FormLocationEntry = () => {
           </div>
 
           {/* Tiles */}
-          <div>
-            <FormTiles control={control} index={index} />
-          </div>
+          <FormTiles control={control} index={index} />
         </div>
       ))}
     </div>
