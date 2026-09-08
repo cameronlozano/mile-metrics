@@ -18,7 +18,7 @@ const FormLocationEntry = () => {
           </div>
 
           {/* Location selection */}
-          <div className='flex justify-evenly pb-6'>
+          <div className='flex justify-evenly pb-9'>
             <MileageLocationFields
               control={control}
               index={index}
