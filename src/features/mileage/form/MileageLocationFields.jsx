@@ -43,7 +43,7 @@ const MileageLocationFields = ({ control, index, resetField }) => {
       ),
       fieldErrorContainer: 'relative',
       fieldError: cn(
-        'absolute top-8.5 right-10 text-[0.625rem] tracking-tighter text-nowrap text-red-500',
+        'absolute top-8.75 right-12.5 text-[0.625rem] tracking-tighter text-nowrap text-red-500',
       ),
       selectedInput: cn('text-gray-700'),
     },
@@ -59,7 +59,7 @@ const MileageLocationFields = ({ control, index, resetField }) => {
           control={control}
           name={`locations.${index}.country`}
           rules={{
-            required: 'Please select the country...',
+            required: 'Please select the country',
           }}
           render={({ field, fieldState }) => {
             return (
@@ -85,7 +85,7 @@ const MileageLocationFields = ({ control, index, resetField }) => {
       <Controller
         control={control}
         name={`locations.${index}.region`}
-        rules={{ required: 'Please select the region...' }}
+        rules={{ required: 'Please select the region' }}
         render={({ field, fieldState }) => {
           return (
             <div className='relative'>

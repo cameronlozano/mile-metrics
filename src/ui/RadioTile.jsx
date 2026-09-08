@@ -1,4 +1,5 @@
 import {
+  FieldError,
   Label,
   RadioButton,
   RadioField,
@@ -13,13 +14,14 @@ import { useFormContext } from '../features/mileage/form/FormContext';
 
 const RadioTile = ({
   label,
-  options,
   value,
+  options,
   onChange,
   onBlur,
   includeCustomTile = true,
   maxLength = 21,
   classNames = {},
+  fieldState,
 }) => {
   // Remembers what was typed in the custom field so it isn't lost if the
   // user taps a preset tile and then comes back to "custom". Seeded from
@@ -28,6 +30,8 @@ const RadioTile = ({
   const [customValue, setCustomValue] = useState(() =>
     value && !options.some((opt) => opt.value === value) ? value : '',
   );
+
+  console.log(fieldState?.error?.message);
 
   // Refs
   const radioGroupRef = useFormContext();
@@ -55,6 +59,8 @@ const RadioTile = ({
       className={classNames.radioGroup}
       value={value}
       onChange={onChange}
+      onBlur={onBlur}
+      isInvalid={fieldState.invalid}
     >
       <Label className={classNames.radioLabel}>{label}</Label>
 
@@ -122,6 +128,12 @@ const RadioTile = ({
             />
           </TextField>
         </RadioField>
+      )}
+
+      {fieldState.invalid && (
+        <FieldError className={classNames.fieldError}>
+          {fieldState?.error.message}
+        </FieldError>
       )}
     </RadioGroup>
   );
