@@ -57,7 +57,7 @@ const FormDatePicker = () => {
                 'rounded-xs text-gray-400 transition-all duration-100 outline-none focus-visible:ring-3 focus-visible:ring-emerald-500 focus-visible:ring-offset-1',
               ),
               fieldError: cn(
-                'absolute top-2 left-14.5 text-[0.625rem] tracking-tighter text-nowrap text-red-500',
+                'absolute top-2 left-6 text-[0.625rem] tracking-tighter text-nowrap text-red-500',
               ),
             }}
           >
