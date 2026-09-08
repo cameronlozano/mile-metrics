@@ -31,10 +31,8 @@ const RadioTile = ({
     value && !options.some((opt) => opt.value === value) ? value : '',
   );
 
-  console.log(fieldState?.error?.message);
-
   // Refs
-  const radioGroupRef = useFormContext();
+  const { radioGroupRef } = useFormContext();
   const lastRadioTileRef = useRef(null);
   const customRadioFieldRef = useRef(null);
   const textInputRef = useRef(null);
