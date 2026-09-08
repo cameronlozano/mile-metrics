@@ -56,10 +56,6 @@ const Select = ({
       <div className='relative flex flex-col'>
         {label && <Label className={classNames.label}>{label}</Label>}
 
-        {console.log({
-          isSelectInvalid: fieldState.invalid,
-          error: fieldState.error?.message,
-        })}
         <Group>
           <Input
             spellCheck={false}
