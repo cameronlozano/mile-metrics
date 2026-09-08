@@ -22,14 +22,11 @@ const ControlledNumericField = ({
 
         const resolvedClassName = resolver(className);
         const resolvedSvg = resolver(svg);
-        console.log(fieldState.error);
         return (
           <div className='relative flex flex-col'>
             <div className='absolute top-1/2 left-1 -translate-y-2'>
               {resolvedSvg}
             </div>
-
-            {console.log({ invalid: fieldState.invalid })}
 
             <div className='pb-1'>
               <NumericFormat
