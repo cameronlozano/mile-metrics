@@ -1,70 +1,15 @@
-import { Link } from 'react-router';
+import Header from '../features/mileage/homepage/Header';
 
 export default function Home() {
-	return (
-		<main className="flex flex-1 flex-col px-6">
-			{/* Welcome Section */}
-			<div className="mb-10 flex justify-center py-6">
-				<h1 className="xs:text-2xl flex flex-col text-xl">
-					<span>
-						Welcome to{' '}
-						<span className="font-semibold text-emerald-700">MileMetrics</span>
-						...
-					</span>
-					<span className="pl-5">...Mile tracking made easy</span>
-				</h1>
-			</div>
+  return (
+    <div className='w-full'>
+      <div className='pb-16'>
+        <Header />
+      </div>
 
-			{/* Cards Section */}
-			<div className="mb-12 flex flex-1 flex-col items-center md:max-h-4/8 lg:max-h-4/8">
-				<h1 className="xs:text-base mb-3 flex justify-center text-sm font-semibold tracking-tight">
-					Select an option to get moving today!
-				</h1>
-
-				<ul className="flex w-full max-w-6xl flex-1 flex-col justify-between gap-6">
-					<li>
-						<Link
-							to="add-miles"
-							className="flex flex-col items-center rounded-2xl border border-slate-500 bg-slate-50 p-3 text-center text-slate-800 shadow-md transition-all duration-100 hover:bg-emerald-100 focus-visible:bg-emerald-50 focus-visible:ring-5 focus-visible:ring-green-500 focus-visible:outline-none active:scale-95 active:border-slate-800 active:bg-emerald-200"
-						>
-							<p className="xs:text-lg text-md mb-2 font-bold">
-								Log your miles regularly
-							</p>
-							<p className="pt-0.5 text-sm">
-								Stay on top of your driving by logging trips as you go — it
-								keeps everything simple and up to date.
-							</p>
-						</Link>
-					</li>
-
-					<li>
-						<Link
-							className="flex flex-col items-center rounded-2xl border border-slate-500 bg-slate-50 p-3 text-center shadow-md transition-all duration-100 hover:bg-emerald-100 focus-visible:bg-emerald-50 focus-visible:ring-5 focus-visible:ring-green-500 focus-visible:outline-none active:scale-95 active:border-slate-800 active:bg-emerald-200"
-							to="view-miles"
-						>
-							<p className="xs:text-lg text-md mb-2 font-bold">
-								Review your dashboard
-							</p>
-							<p className="pt-0.5 text-sm">
-								Get a clear view of your totals and trends so you always know
-								how your miles are adding up.
-							</p>
-						</Link>
-					</li>
-
-					<li>
-						<Link className="flex flex-col items-center rounded-2xl border border-slate-500 bg-slate-50 p-3 text-center shadow-md transition-all duration-100 hover:bg-emerald-100 focus-visible:bg-emerald-50 focus-visible:ring-5 focus-visible:ring-green-500 focus-visible:outline-none active:scale-95 active:border-slate-800 active:bg-emerald-200">
-							<p className="xs:text-lg text-md mb-2 font-bold">
-								Stay organized (coming soon)
-							</p>
-							<p className="pt-0.5 text-sm">
-								Easily sort and manage your entries to keep everything neat and
-								easy to find.
-							</p>
-						</Link>
-					</li>
-				</ul>
-			</div>
-		</main>
-	);
+      <p className='bg-linear-to-t from-gray-200 via-gray-400 to-gray-500 bg-clip-text text-center text-2xl font-bold text-transparent'>
+        Turn every drive into organized, tax-ready mileage records—fast
+      </p>
+    </div>
+  );
 }
