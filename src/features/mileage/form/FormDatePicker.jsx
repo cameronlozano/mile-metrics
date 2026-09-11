@@ -51,7 +51,7 @@ const FormDatePicker = () => {
                 'flex justify-center focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-1',
               ),
               segment: cn(
-                'rounded-xs transition-all duration-100 outline-none focus-visible:ring-3 focus-visible:ring-emerald-500 focus-visible:ring-offset-1',
+                'rounded-xs text-gray-600 transition-all duration-100 outline-none focus-visible:ring-3 focus-visible:ring-emerald-500 focus-visible:ring-offset-1',
               ),
               placeholder: cn(
                 'rounded-xs text-gray-400 transition-all duration-100 outline-none focus-visible:ring-3 focus-visible:ring-emerald-500 focus-visible:ring-offset-1',
