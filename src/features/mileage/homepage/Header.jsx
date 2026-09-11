@@ -1,48 +1,34 @@
-import { Link } from 'react-router';
+import DotSeparator from '../../../ui/DotSeparator';
+import cn from '../../../utils/cn';
 
 const Header = () => {
+  const liStyling = cn('flex text-xs font-medium text-gray-500/75 uppercase');
   return (
-    <div className='w-full'>
-      <div className='flex items-center justify-center gap-10 pb-10'>
-        <div>
-          <h1 className='text-7xl font-bold text-gray-700'>MileMetrics</h1>
+    <div>
+      {/* TRACK - DEDUCT - GO FURTHER */}
+      <ul className='mb-0.5 flex items-center gap-5 pl-1.5'>
+        <li className={liStyling}>Track</li>
+        <DotSeparator renderAs='li' />
+        <li className={liStyling}>Deduct</li>
+        <DotSeparator renderAs='li' />
+        <li className={liStyling}>Go further</li>
+      </ul>
 
-          <p className='font-medium tracking-tighter text-gray-500/60'>
-            Gives users a simple way to manage mileage
-          </p>
-        </div>
+      {/* Primary header */}
+      <div className='pb-5'>
+        <h1 className='text-8xl font-bold tracking-tight text-gray-800'>
+          MileMetrics
+        </h1>
 
-        <Link to={'/signup'}>
-          <div className='flex h-40 w-150 cursor-pointer flex-col items-center justify-center gap-0.75 bg-emerald-500/90 text-white transition-all duration-100 hover:bg-emerald-500'>
-            <h3 className='items-center text-5xl font-bold'>
-              Get started today
-            </h3>
-            <p className='font-semibold tracking-tight'>
-              Create your account to save records, track miles, and simplify tax
-              time.
-            </p>
-          </div>
-        </Link>
+        <p className='tracking- pl-1.25 text-xl font-medium text-gray-500/75'>
+          A smarter way to track every mile
+        </p>
       </div>
 
-      <div className='flex items-center justify-center gap-10'>
-        <Link to={'/add-miles'}>
-          <div className='flex h-40 w-150 cursor-pointer flex-col items-center justify-center gap-0.75 bg-emerald-500/90 text-white transition-all duration-100 hover:bg-emerald-500'>
-            <h3 className='items-center text-5xl font-bold'>Record mileage</h3>
-
-            <p className='font-semibold tracking-tight'>
-              Add mileage records efficiently with minimum effort
-            </p>
-          </div>
-        </Link>
-
-        <div>
-          <h1 className='text-7xl font-bold text-gray-700'>MileMetrics</h1>
-          <p className='font-medium tracking-tighter text-gray-500/60'>
-            Makes mile entry quick and reliable
-          </p>
-        </div>
-      </div>
+      <p className='w-100 pl-1.5 font-medium text-gray-500/75'>
+        Log your drives, organize your records, and get IRS-ready reports - all
+        in one place
+      </p>
     </div>
   );
 };
