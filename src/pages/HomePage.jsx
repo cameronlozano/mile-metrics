@@ -1,15 +1,27 @@
-import Header from '../features/mileage/homepage/Header';
+import BuiltWith from '../features/mileage/homepage/BuiltWith';
+import HeroSection from '../features/mileage/homepage/HeroSection';
+import HowItWorks from '../features/mileage/homepage/HowItWorks';
+import ProductHighlights from '../features/mileage/homepage/ProductHighlights';
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className='w-full'>
-      <div className='pb-16'>
-        <Header />
-      </div>
+    // Container
+    <div className='w-full bg-white pb-10'>
+      <section className='relative pt-4.5 pb-9'>
+        <HeroSection />
+      </section>
 
-      <p className='bg-linear-to-t from-gray-200 via-gray-400 to-gray-500 bg-clip-text text-center text-2xl font-bold text-transparent'>
-        Turn every drive into organized, tax-ready mileage records—fast
-      </p>
+      <section className='relative mb-12 pl-2'>
+        <ProductHighlights />
+
+        <div className='absolute -top-5.75 right-15'>
+          <BuiltWith />
+        </div>
+      </section>
+
+      <section className=''>
+        <HowItWorks />
+      </section>
     </div>
   );
 }
