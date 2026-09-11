@@ -33,7 +33,7 @@ export default function AddMilesPage() {
     formState: { isSubmitting },
   } = useForm({
     mode: 'onTouched',
-    delayError: 100,
+    delayError: 1000,
     defaultValues: {
       date: null,
       initialMiles: null,
@@ -78,7 +78,7 @@ export default function AddMilesPage() {
     }
   };
   const onError = (errors) => {
-    console.log(errors);
+    console.log({ errors });
     // if (errors.date) {
     //   toast.error(errors.date.message);
     // }
@@ -97,7 +97,6 @@ export default function AddMilesPage() {
   const handleKeyDownCapture = (e) => {
     if (radioGroupRef.current.contains(e.target))
       if (e.key === 'Enter') {
-        (e) => console.log('FORM:', e.key, e.target);
         e.preventDefault();
         addLocationRef.current?.focus();
       }
