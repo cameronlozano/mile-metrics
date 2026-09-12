@@ -6,9 +6,11 @@ export default function Button({
   type = 'button',
   disabled = false,
   className = '',
-  children = '',
-  onClick = undefined,
+  children,
+  onClick,
   variant,
+  renderAs,
+  to,
 }) {
   let variantStyling;
   const stylingLookup = {
@@ -17,12 +19,15 @@ export default function Button({
     ),
   };
 
+  const Element = renderAs ?? BaseUIButton;
+
   if (variant != null) variantStyling = stylingLookup[variant];
 
   return (
-    <BaseUIButton
+    <Element
       type={type}
       disabled={disabled}
+      to={to}
       className={twMerge(
         'flex cursor-pointer rounded-full text-center text-sm transition-all duration-100',
         className,
@@ -31,6 +36,6 @@ export default function Button({
       onClick={onClick}
     >
       {children}
-    </BaseUIButton>
+    </Element>
   );
 }

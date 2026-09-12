@@ -7,7 +7,12 @@ const HeroActions = () => {
     <div className='flex w-90 flex-col items-center justify-center pl-1'>
       <div className='flex items-center gap-8'>
         {/* Get started button */}
-        <Button variant='primary' className='group relative ml-15 flex w-43'>
+        <Button
+          renderAs={Link}
+          to='/add-miles'
+          variant='primary'
+          className='group relative ml-15 flex w-43'
+        >
           <p className='pl-5 text-nowrap'>
             Get Started
             <span className='absolute top-1/2 right-6 -translate-y-1/2 transition-transform duration-100 group-hover:translate-x-1.5'>
