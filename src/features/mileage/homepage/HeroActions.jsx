@@ -5,7 +5,7 @@ import { ArrowRight, MoveRight } from 'lucide-react';
 const HeroActions = () => {
   return (
     <div className='flex w-90 flex-col items-center justify-center pl-1'>
-      <div className='flex items-center gap-8'>
+      <div className='flex items-center gap-7'>
         {/* Get started button */}
         <Button
           renderAs={Link}
@@ -22,14 +22,17 @@ const HeroActions = () => {
         </Button>
 
         {/* Sign in */}
-        <Link className='relative text-lg font-medium tracking-tight text-gray-500/80'>
+        <Link
+          to='/login'
+          className='text-color-subtle group relative text-lg font-medium tracking-tight'
+        >
           Sign in
-          <MoveRight className='absolute top-1/2 left-16.25 -translate-y-2.75 text-gray-500/70' />
+          <MoveRight className='text-color-subtle absolute top-1/2 left-16.5 -translate-y-2.75 transition-all duration-125 group-hover:translate-x-2' />
         </Link>
       </div>
 
       {/* Feel free to try */}
-      <div className='flex items-center gap-5 pt-3.25 pr-5 text-xs text-gray-600/65'>
+      <div className='text-color-subtle flex items-center gap-5 pt-3.25 pr-5 text-xs font-light'>
         <p>Completely free to use</p>
       </div>
     </div>
