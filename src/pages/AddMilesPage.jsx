@@ -57,15 +57,18 @@ export default function AddMilesPage() {
 
   // Handlers
   const onSubmit = async (data) => {
-    console.log({ onSubmit: 'SUBMITTED' });
     try {
+      const { year, month, day } = data.date;
+
       const payload = {
-        date: data.date,
-        notes: data.notes,
+        date: new Date(year, month - 1, day),
         initialMiles: Number(data.initialMiles),
         endingMiles: Number(data.endingMiles),
         locations: [...data.locations].flat(),
+        notes: data.notes,
       };
+
+      console.log({ data, payload });
 
       await insertMileageEntry(payload);
       queryClient.invalidateQueries({ queryKey: ['miles'] });
@@ -73,7 +76,7 @@ export default function AddMilesPage() {
       toast.success('Mileage entry successfully saved');
       reset();
     } catch (err) {
-      toast.error('Could not save your entry, try again');
+      toast.error('Unable to save your entry.');
       console.log(err);
     }
   };
