@@ -5,7 +5,7 @@
   html,
   body {
     scrollbar-gutter: stable;
-    @apply bg-[#F9FAFB];
+    background-color: #f9fafb;
   }
 }
 
@@ -14,17 +14,39 @@
   --font-data: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
   --breakpoint-xs: 29rem;
 
-  --color-athens-gray-50: #f1f5f9;
-  --color-athens-gray-100: #e9eff5;
-  --color-athens-gray-200: #cedde9;
-  --color-athens-gray-300: #a3c0d6;
-  --color-athens-gray-400: #729fbe;
-  --color-athens-gray-500: #5083a7;
-  --color-athens-gray-600: #3d698c;
-  --color-athens-gray-700: #325572;
-  --color-athens-gray-800: #2d495f;
-  --color-athens-gray-900: #293e51;
-  --color-athens-gray-950: #1b2936;
+  /* COLORS */
+  --color-color-bg: #f9fafb;
+  --color-color-brand-primary: var(--color-emerald-600);
+  --color-color-brand-primary-darker: color-mix(
+    in oklab,
+    var(--color-emerald-700) 100%,
+    transparent
+  );
+  --color-color-brand-primary-muted: color-mix(
+    in oklab,
+    var(--color-emerald-600) 95%,
+    transparent
+  );
+
+  --color-color-header-primary: var(--color-gray-700);
+  --color-color-header-primary-dark: var(--color-gray-800);
+  --color-color-header-secondary: var(--color-gray-600);
+
+  --color-color-field-label: var(--color-gray-600);
+  --color-color-field-placeholder: color-mix(
+    in oklab,
+    var(--color-slate-500) 80%,
+    transparent
+  );
+
+  --color-color-subtle: color-mix(
+    in oklab,
+    var(--color-slate-600) 83%,
+    transparent
+  );
+
+  /* Sizings */
+  --text-size-header-secondary: 3.25rem;
 }
 
 .notes-scrollbar {
