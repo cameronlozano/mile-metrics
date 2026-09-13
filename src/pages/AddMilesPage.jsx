@@ -156,7 +156,9 @@ export default function AddMilesPage() {
             </div>
 
             {/* Submit */}
-            <FormSubmitButton />
+            <div className='flex w-full justify-center'>
+              <FormSubmitButton />
+            </div>
           </div>
         </div>
       </Form>
