@@ -42,7 +42,7 @@ export const getMileageEntries = async ({
     );
   }
 
-  let query = supabase.from('Miles').select('*');
+  let query = supabase.from('records').select('*');
 
   if (exactDate) {
     query = query.eq('date', exactDate);
@@ -67,7 +67,7 @@ export const getMileageEntries = async ({
 };
 
 export const insertMileageEntry = async (entry) => {
-  const { error } = await supabase.from('Miles').insert([entry]);
+  const { error } = await supabase.from('records').insert([entry]);
 
   if (error) {
     console.log(error);
@@ -77,7 +77,7 @@ export const insertMileageEntry = async (entry) => {
 
 export const updateMileageEntry = async (id, payload) => {
   const { data, error } = await supabase
-    .from('Miles')
+    .from('records')
     .update(payload)
     .eq('id', id)
     .select();
@@ -90,7 +90,7 @@ export const updateMileageEntry = async (id, payload) => {
 };
 
 export const deleteMileageEntry = async (id) => {
-  const { error } = await supabase.from('Miles').delete().eq('id', id);
+  const { error } = await supabase.from('records').delete().eq('id', id);
 
   if (error) throw new Error(error.message);
 };
