@@ -9,13 +9,13 @@ const HeroActions = () => {
         {/* Get started button */}
         <Button
           renderAs={Link}
-          to='/add-miles'
-          variant='primary'
+          to='/login'
+          variant='submit'
           className='group relative ml-15 flex w-43'
         >
           <p className='pl-5 text-nowrap'>
             Get Started
-            <span className='absolute top-1/2 right-6 -translate-y-1/2 transition-transform duration-100 group-hover:translate-x-1.5'>
+            <span className='absolute top-1/2 right-4 -translate-y-1/2 transition-transform duration-100 group-hover:translate-x-1.5'>
               {<ArrowRight aria-hidden='true' size={20} />}
             </span>
           </p>
