@@ -27,9 +27,7 @@ const MileageLocationFields = ({ control, index, resetField }) => {
     ),
     classNames: {
       container: cn('group font-data w-50'),
-      label: cn(
-        'text-md relative pb-1 text-center font-medium text-nowrap text-gray-600/90',
-      ),
+      label: cn('field-label pb-1 text-center'),
       input: (fieldState) =>
         cn(
           'group w-50 cursor-pointer border border-gray-200 p-1.5 text-center text-sm text-slate-400 outline-none placeholder:text-gray-400 hover:bg-slate-100',
@@ -53,7 +51,7 @@ const MileageLocationFields = ({ control, index, resetField }) => {
     <>
       {/* COUNTRY */}
       <div className='relative'>
-        <Asterisk className='top-px right-15.5' />
+        <Asterisk className='top-px right-16.25' />
 
         <Controller
           control={control}
@@ -89,7 +87,7 @@ const MileageLocationFields = ({ control, index, resetField }) => {
         render={({ field, fieldState }) => {
           return (
             <div className='relative'>
-              <Asterisk className='top-px right-16.75' />
+              <Asterisk className='top-px right-17.25' />
 
               <Select
                 {...sharedSelectProps}
@@ -122,7 +120,7 @@ const MileageLocationFields = ({ control, index, resetField }) => {
         rules={{ required: 'Please select the locality' }}
         render={({ field, fieldState }) => (
           <div className='relative'>
-            <Asterisk className='right-15.5' />
+            <Asterisk className='right-16.25' />
 
             <Select
               {...sharedSelectProps}
