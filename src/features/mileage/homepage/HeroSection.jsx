@@ -7,7 +7,7 @@ const HeroSection = () => {
     <>
       <HeroImg />
 
-      <div className='relative z-100 flex place-items-center pb-6.75 pl-10'>
+      <div className='relative z-100 flex place-items-center pb-8 pl-10'>
         <Header />
       </div>
 
