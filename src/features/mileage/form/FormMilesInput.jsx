@@ -1,10 +1,11 @@
-import { Icon } from '@iconify/react';
-import FieldLabel from '../../../ui/FieldLabel';
-import handleError from '../../../utils/handleError';
-import ControlledNumericField from '../../../ui/ControlledNumericField';
-import Asterisk from '../../../ui/Asterisk';
-import cn from '../../../utils/cn';
 import { useFormContext } from './FormContext';
+import ControlledNumericField from '../../../ui/ControlledNumericField';
+import handleError from '../../../utils/handleError';
+import cn from '../../../utils/cn';
+
+import FieldLabel from '../../../ui/FieldLabel';
+import Asterisk from '../../../ui/Asterisk';
+import { Icon } from '@iconify/react';
 
 const FormMilesInput = ({ mode }) => {
   const { control } = useFormContext();
@@ -99,10 +100,7 @@ const FormMilesInput = ({ mode }) => {
 
   return (
     <div className='flex flex-col gap-1 text-center'>
-      <FieldLabel
-        className='text-md relative text-center'
-        htmlFor='initial-odometer'
-      >
+      <FieldLabel className='relative text-center' htmlFor='initial-odometer'>
         <Asterisk className={asteriskStyling} />
         {labelText}
       </FieldLabel>
