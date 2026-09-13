@@ -9,7 +9,7 @@ export default function sectionTitle({
     <label
       htmlFor={htmlFor}
       className={twMerge(
-        `text-sm font-medium tracking-tight text-gray-600 capitalize`,
+        `text-base font-medium tracking-tight text-gray-600 capitalize`,
         className,
       )}
     >
