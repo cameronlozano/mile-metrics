@@ -1,5 +1,5 @@
 import { twMerge } from 'tailwind-merge';
-import { Button as BaseUIButton } from '@base-ui/react/button';
+import { Button as reactAriaButton } from 'react-aria-components';
 import cn from '../utils/cn';
 
 export default function Button({
@@ -14,14 +14,14 @@ export default function Button({
 }) {
   let variantStyling;
   const stylingLookup = {
-    primary: cn(
-      'border border-gray-400 bg-emerald-600/90 px-3 py-3.5 font-semibold tracking-wider text-white transition-all duration-100 outline-none hover:bg-emerald-600 focus-visible:ring-3 focus-visible:ring-emerald-600 focus-visible:ring-offset-3 active:scale-95 active:bg-emerald-600/70',
+    submit: cn(
+      'text-md bg-color-brand-primary hover:bg-color-brand-primary-darker active:bg-color-brand-primary-muted rounded-lg border px-3 py-3.5 text-center font-bold tracking-wider text-white ring-offset-2 transition-all duration-100 outline-none hover:cursor-pointer focus-visible:ring-3 focus-visible:ring-emerald-600 focus-visible:ring-offset-3 active:scale-95',
     ),
   };
 
-  const Element = renderAs ?? BaseUIButton;
-
   if (variant != null) variantStyling = stylingLookup[variant];
+
+  const Element = renderAs ?? reactAriaButton;
 
   return (
     <Element
@@ -29,9 +29,9 @@ export default function Button({
       disabled={disabled}
       to={to}
       className={twMerge(
-        'flex cursor-pointer rounded-full text-center text-sm transition-all duration-100',
-        className,
+        'w-full cursor-pointer transition-all duration-100',
         variant && variantStyling,
+        className,
       )}
       onClick={onClick}
     >
