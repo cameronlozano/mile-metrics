@@ -19,11 +19,13 @@ const DatePicker = ({
   value,
   onChange,
   onBlur,
-  label,
-  classNames = {},
-  children,
   isInvalid,
   fieldState,
+
+  id,
+  label,
+  children,
+  classNames = {},
 }) => {
   return (
     <AriaDatePicker
@@ -33,11 +35,12 @@ const DatePicker = ({
       onBlur={onBlur}
     >
       <Label className={classNames.label}>{label}</Label>
+
       <Group
         className={twMerge('relative flex items-center', classNames.group)}
       >
         {children}
-        <DateInput className={twMerge('flex w-full', classNames.input)}>
+        <DateInput id={id} className={twMerge('flex w-full', classNames.input)}>
           {(segment) => (
             <DateSegment
               segment={segment}

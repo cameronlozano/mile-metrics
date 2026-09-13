@@ -1,6 +1,5 @@
 import { CalendarFold } from 'lucide-react';
 import cn from '../../../utils/cn';
-import FieldLabel from '../../../ui/FieldLabel';
 import DatePicker from '../../../ui/DatePicker';
 import Calendar from '../../../ui/Calendar';
 import { Controller } from 'react-hook-form';
@@ -28,21 +27,20 @@ const FormDatePicker = () => {
         },
       }}
       render={({ field: { onChange, onBlur, value }, fieldState }) => (
-        <div className='flex flex-col gap-0.5'>
-          <FieldLabel className='text-md relative text-center'>
-            <Asterisk className='top-px right-19.25' />
-            Date
-          </FieldLabel>
-
+        <div className='relative flex flex-col gap-0.5'>
+          <Asterisk className='absolute top-px right-19.25' />
           <DatePicker
             value={value}
             onChange={onChange}
             onBlur={onBlur}
-            label='Date'
             isInvalid={fieldState.invalid}
             fieldState={fieldState}
+
+            id='date'
+            label='Date'
             classNames={{
-              label: cn('sr-only'),
+              label: cn('field-label flex justify-center pb-0.5'),
+
               group: cn(
                 'mx-auto flex w-50 gap-1.5 rounded-sm border border-gray-200 bg-white py-1.5 text-sm text-gray-500',
                 fieldState.invalid && 'border-red-500',
