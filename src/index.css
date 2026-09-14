@@ -35,10 +35,17 @@
   );
 
   /* PRIMARY -> TERTIARY HEADERS */
-  --color-color-header-primary-dark: var(--color-slate-800);
-  --color-color-header-primary: var(--color-slate-700);
-  --color-color-header-secondary: var(--color-slate-600);
-  --color-color-header-tertiary: var(--color-slate-500);
+  --color-color-header-primary-dark: var(--color-gray-800);
+  --color-color-header-primary: var(--color-gray-700);
+
+  --color-color-header-secondary: var(--color-gray-600);
+  --color-color-header-secondary-muted: color-mix(
+    in oklab,
+    var(--color-gray-600) 85%,
+    transparent
+  );
+
+  --color-color-header-tertiary: var(--color-gray-500);
 
   --color-color-field-label: var(--color-gray-600);
   --color-color-field-placeholder: color-mix(

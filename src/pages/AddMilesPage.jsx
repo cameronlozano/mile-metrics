@@ -14,6 +14,7 @@ import FormLocationEntry from '../features/mileage/form/FormLocationEntry';
 import AddLocationButton from '../features/mileage/form/AddLocationButton';
 import FormNotes from '../features/mileage/form/FormNotes';
 import FormSubmitButton from '../features/mileage/form/FormSubmitButton';
+import showToast from '../utils/showToast';
 
 export default function AddMilesPage() {
   const queryClient = useQueryClient();
@@ -67,34 +68,20 @@ export default function AddMilesPage() {
         locations: [...data.locations].flat(),
         notes: data.notes,
       };
-
       console.log({ data, payload });
 
-      await insertMileageEntry(payload);
-      queryClient.invalidateQueries({ queryKey: ['miles'] });
+      await showToast(insertMileageEntry(payload), 'form');
 
-      toast.success('Mileage entry successfully saved');
-      reset();
+      // Clear cache
+      queryClient.invalidateQueries({ queryKey: ['miles'] });
+      // Reset form
+      // reset();
     } catch (err) {
-      toast.error('Unable to save your entry.');
       console.log(err);
     }
   };
   const onError = (errors) => {
     console.log({ errors });
-    // if (errors.date) {
-    //   toast.error(errors.date.message);
-    // }
-    // if (errors.initialMiles) {
-    //   toast.error(errors.initialMiles.message);
-    // }
-    // if (errors.endingMiles) {
-    //   toast.error(errors.endingMiles.message);
-    // }
-    // if (errors.locations) {
-    //   toast.error(errors.locations.message);
-    // }
-    // return;
   };
 
   const handleKeyDownCapture = (e) => {

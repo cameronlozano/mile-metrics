@@ -7,8 +7,6 @@ import {
 } from '../utils/dateUtils';
 import Loader from '../ui/Loader';
 import { MileageTable } from '../features/mileage/table/MileageTable';
-import Button from '../ui/Button';
-import ButtonLink from '../ui/ButtonLink';
 import { TableOperations } from '../ui/table/TableOperations';
 
 export default function MileageDetails() {
@@ -85,28 +83,28 @@ export default function MileageDetails() {
     placeholderData: keepPreviousData,
   });
 
-  if (isLoading) return <Loader size={45} containerClassName="min-h-screen" />;
+  if (isLoading) return <Loader size={45} containerClassName='min-h-screen' />;
 
   return (
-    <main className="bg-athens-gray-50 flex min-h-dvh min-w-dvw justify-center py-5.5">
-      <div className="w-14/16 text-slate-700">
-        <div className="grid grid-cols-[1fr_1fr_1fr]">
-          <div className="flex items-center justify-start">
+    <main className='bg-athens-gray-50 flex min-h-dvh min-w-dvw justify-center py-5.5'>
+      <div className='w-14/16 text-slate-700'>
+        <div className='grid grid-cols-[1fr_1fr_1fr]'>
+          <div className='flex items-center justify-start'>
             <TableOperations />
           </div>
 
-          <div className="col-start-2 flex flex-col items-center justify-center pb-2">
-            <h1 className="text-center text-3xl font-medium text-gray-600 capitalize">{`${timeFrame} Miles`}</h1>
-            <p className="font-data text-sm tracking-wide text-slate-500">
+          <div className='col-start-2 flex flex-col items-center justify-center pb-2'>
+            <h1 className='text-center text-3xl font-medium text-gray-600 capitalize'>{`${timeFrame} Miles`}</h1>
+            <p className='font-data text-sm tracking-wide text-slate-500'>
               Every mile logged with the details that{' '}
-              <em className="italic">matter</em>.
+              <em className='italic'>matter</em>.
             </p>
           </div>
 
-          <div className="col-start-3 flex items-center justify-end">
+          <div className='col-start-3 flex items-center justify-end'>
             <ButtonLink
               to={'/view-miles'}
-              className="px-0 duration-100 active:scale-90"
+              className='px-0 duration-100 active:scale-90'
             >
               Go Back
             </ButtonLink>
