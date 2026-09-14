@@ -6,13 +6,14 @@ const useToasterLimit = () => {
   console.log({ toasts });
 
   useEffect(() => {
-    const visibleToast = toasts.filter((toast) => toast.visible === true);
-    console.log({ visibleToast });
+    const visibleToast = toasts.filter((toast) => toast.visible);
 
-    if (visibleToast.length > 1)
+    // Only allow one visible toast at a time
+    if (visibleToast.length > 1) {
       visibleToast.forEach((visibleToast, index) => {
-        if (index != 0) toast.dismiss(visibleToast.ids);
+        if (index != 0) toast.dismiss(visibleToast.id);
       });
+    }
   }, [toasts]);
 };
 
