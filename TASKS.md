@@ -6,8 +6,6 @@
 
 -[ ] Settings button on mileage table shifts towards the right onCLick
 
-- [ ] Change positioning of toast to render in the bottom-right corner
-
 #BUGS
 
 - [ ] Entries belonging to the month of august are displayed as september
