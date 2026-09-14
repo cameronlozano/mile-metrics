@@ -1,7 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { Toaster } from 'react-hot-toast';
 
 import AppLayout from './ui/AppLayout';
 import HomePage from './pages/HomePage';
@@ -9,7 +8,6 @@ import AddMilesPage from './pages/AddMilesPage';
 import ViewMilesPage from './pages/ViewMilesPage';
 import MileageDetails from './pages/MileageDetailsPage';
 import LoginPage from './pages/LoginPage';
-import useToasterLimit from './hooks/useToasterLimit';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -47,24 +45,9 @@ const router = createBrowserRouter([
   },
 ]);
 
-const ToasterLimit = () => {
-  useToasterLimit();
-
-  return null;
-};
-
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Toaster
-        position='top-left'
-        containerStyle={{
-          top: 50,
-        }}
-      />
-
-      <ToasterLimit />
-
       <ReactQueryDevtools initialIsOpen={false} />
 
       <RouterProvider router={router} />
