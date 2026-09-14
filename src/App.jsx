@@ -17,33 +17,38 @@ const queryClient = new QueryClient({
   },
 });
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      element: <AppLayout />,
+      children: [
+        {
+          path: '/',
+          element: <HomePage />,
+        },
+        {
+          path: '/add-miles',
+          element: <AddMilesPage />,
+        },
+        {
+          path: '/view-miles',
+          element: <ViewMilesPage />,
+        },
+        {
+          path: '/view-miles/:timeFrame',
+          element: <MileageDetails />,
+        },
+        {
+          path: '/login',
+          element: <LoginPage />,
+        },
+      ],
+    },
+  ],
   {
-    element: <AppLayout />,
-    children: [
-      {
-        path: '/',
-        element: <HomePage />,
-      },
-      {
-        path: '/add-miles',
-        element: <AddMilesPage />,
-      },
-      {
-        path: '/view-miles',
-        element: <ViewMilesPage />,
-      },
-      {
-        path: '/view-miles/:timeFrame',
-        element: <MileageDetails />,
-      },
-      {
-        path: '/login',
-        element: <LoginPage />,
-      },
-    ],
+    basename: '/mile-metrics',
   },
-]);
+);
 
 export default function App() {
   return (
