@@ -2,11 +2,13 @@ import DotSeparator from '../../../ui/DotSeparator';
 import cn from '../../../utils/cn';
 
 const Header = () => {
-  const liStyling = cn('flex text-xs font-medium text-gray-500/75 uppercase');
+  const liStyling = cn(
+    'flex text-[0.6875rem] font-medium text-gray-500/75 uppercase lg:text-xs',
+  );
   return (
-    <div>
+    <div className='relative'>
       {/* TRACK - DEDUCT - GO FURTHER */}
-      <ul className='mb-0.5 flex items-center gap-5 pl-1.5'>
+      <ul className='absolute -top-1.5 flex items-center gap-5 pl-0.5 lg:mb-0.5 lg:pl-1.5'>
         <li className={liStyling}>Track</li>
         <DotSeparator renderAs='li' />
         <li className={liStyling}>Deduct</li>
@@ -15,17 +17,17 @@ const Header = () => {
       </ul>
 
       {/* Primary header */}
-      <div className='pb-5'>
-        <h1 className='text-8xl font-bold tracking-tight text-gray-800'>
+      <div className='pb-7 lg:pb-5'>
+        <h1 className='text-color-header-primary text-[3.375rem] font-bold tracking-tight lg:text-8xl'>
           MileMetrics
         </h1>
 
-        <p className='tracking- pl-1.25 text-xl font-medium text-gray-500/75'>
+        <p className='pl-1.25 text-base leading-1.5 font-medium tracking-tight text-gray-500/75 lg:text-xl'>
           A smarter way to track every mile
         </p>
       </div>
 
-      <p className='w-100 pl-1.5 font-medium text-gray-500/75'>
+      <p className='w-70 pl-1.5 text-sm font-medium text-pretty text-gray-500/75 lg:w-100'>
         Log your drives, organize your records, and get IRS-ready reports - all
         in one place
       </p>

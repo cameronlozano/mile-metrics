@@ -17,7 +17,7 @@ const BuiltWith = () => {
         Built With
       </p>
 
-      <ul className='grid grid-cols-4 place-items-center gap-x-10 gap-y-5'>
+      <ul className='mx-2.5 grid grid-cols-4 place-items-center gap-x-5 gap-y-5 lg:gap-x-10'>
         <li>
           <img className={imgStyling} src={react} />
         </li>

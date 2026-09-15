@@ -7,11 +7,13 @@ const HeroSection = () => {
     <>
       <HeroImg />
 
-      <div className='relative z-100 flex place-items-center pb-8 pl-10'>
+      <div className='relative z-100 flex place-items-center items-center justify-center pb-8 pl-2 lg:pl-10'>
         <Header />
       </div>
 
-      <HeroActions />
+      <div>
+        <HeroActions />
+      </div>
     </>
   );
 };

@@ -4,35 +4,37 @@ import { ArrowRight, MoveRight } from 'lucide-react';
 
 const HeroActions = () => {
   return (
-    <div className='flex w-90 flex-col items-center justify-center pl-1'>
-      <div className='flex items-center gap-7'>
+    <div className='flex flex-col lg:w-90 lg:items-center'>
+      <div className='flex items-center justify-evenly lg:gap-7'>
         {/* Get started button */}
         <Button
           renderAs={Link}
           to='/login'
           variant='submit'
-          className='group relative ml-15 flex w-43'
+          className='group relative flex w-35 text-sm lg:ml-15 lg:w-43'
         >
-          <p className='pl-5 text-nowrap'>
+          <p className='text-nowrap lg:pl-5'>
             Get Started
-            <span className='absolute top-1/2 right-4 -translate-y-1/2 transition-transform duration-100 group-hover:translate-x-1.5'>
+            <span className='absolute top-1/2 right-3.5 -translate-y-1/2 transition-transform duration-100 group-hover:translate-x-1.5 lg:right-4'>
               {<ArrowRight aria-hidden='true' size={20} />}
             </span>
           </p>
         </Button>
 
         {/* Sign in */}
-        <Link
-          to='/login'
-          className='text-color-subtle group relative text-lg font-medium tracking-tight'
-        >
-          Sign in
-          <MoveRight className='text-color-subtle absolute top-1/2 left-16.5 -translate-y-2.75 transition-all duration-125 group-hover:translate-x-2' />
-        </Link>
+        <div>
+          <Link
+            to='/login'
+            className='text-color-subtle group relative flex gap-2 tracking-tight lg:text-lg lg:font-medium'
+          >
+            Sign in
+            <MoveRight className='text-color-subtle transition-all duration-125 lg:absolute lg:top-1/2 lg:left-16.5 lg:-translate-y-2.75 lg:group-hover:translate-x-2' />
+          </Link>
+        </div>
       </div>
 
       {/* Feel free to try */}
-      <div className='text-color-subtle flex items-center gap-5 pt-3.25 pr-5 text-xs font-light'>
+      <div className='text-color-subtle flex items-center pt-3.25 pl-10.5 text-xs font-light tracking-tight lg:gap-5 lg:pr-5'>
         <p>Completely free to use</p>
       </div>
     </div>
