@@ -22,13 +22,13 @@ const HowItWorks = () => {
   );
 
   return (
-    <div className='bg-color-bg flex h-160 flex-col border-t-2 border-b-2 border-gray-400/20 py-4 shadow-sm lg:h-65 lg:pl-11.25'>
+    <div className='bg-color-bg flex flex-col border-t-2 border-b-2 border-gray-400/20 pt-4 shadow-sm lg:h-65 lg:pl-11.25'>
       <div className='flex flex-col justify-center pb-10 lg:w-125 lg:items-center'>
-        <p className='text-color-subtle mx-auto pb-0.5 text-(length:--font-11px) tracking-wider uppercase lg:pl-1 lg:font-medium'>
+        <p className='text-color-subtle mx-auto pb-1 text-(length:--font-11px) tracking-wider uppercase lg:pl-1 lg:font-medium'>
           Make more on every mile
         </p>
 
-        <div className='flex justify-evenly pb-2 text-(length:--font-28px) font-bold tracking-wide text-gray-700 lg:gap-5 lg:text-(length:--font-50px)'>
+        <div className='flex justify-evenly pb-4 text-(length:--font-28px) font-bold tracking-wide text-gray-700 lg:gap-5 lg:text-(length:--font-50px)'>
           <h2>Drive.</h2>
           <h2>Track.</h2>
           <h2>Save.</h2>
