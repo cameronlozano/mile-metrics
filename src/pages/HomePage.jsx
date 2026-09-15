@@ -6,7 +6,7 @@ import ProductHighlights from '../features/mileage/homepage/ProductHighlights';
 export default function HomePage() {
   return (
     // Container
-    <div className='w-full bg-white pb-20'>
+    <div className='w-full bg-white pb-5'>
       <section className='relative pt-4.5 pb-8 lg:pb-9'>
         <HeroSection />
       </section>

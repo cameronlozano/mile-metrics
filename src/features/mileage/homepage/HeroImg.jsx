@@ -5,7 +5,7 @@ const HeroImg = () => {
     <>
       <img
         src={img}
-        className='absolute -top-13 h-90 w-full object-cover object-[0px_-3rem]'
+        className='absolute top-0 w-full object-cover object-[0px_-3rem]'
       />
     </>
   );

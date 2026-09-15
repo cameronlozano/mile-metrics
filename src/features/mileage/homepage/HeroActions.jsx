@@ -34,7 +34,7 @@ const HeroActions = () => {
       </div>
 
       {/* Feel free to try */}
-      <div className='text-color-subtle flex items-center pt-3.25 pl-10.5 text-xs font-light tracking-tight lg:gap-5 lg:pr-5'>
+      <div className='text-color-subtle flex items-center pt-3.25 pl-16.75 text-xs font-light tracking-tight lg:gap-5 lg:pr-5'>
         <p>Completely free to use</p>
       </div>
     </div>
