@@ -3,7 +3,7 @@ import cn from '../../../utils/cn';
 
 const Header = () => {
   const liStyling = cn(
-    'flex text-[0.6875rem] font-medium text-gray-500/75 uppercase lg:text-xs',
+    'flex text-(length:--font-11px) font-medium text-gray-500/75 uppercase lg:text-xs',
   );
   return (
     <div className='relative'>
@@ -17,12 +17,12 @@ const Header = () => {
       </ul>
 
       {/* Primary header */}
-      <div className='pb-7 lg:pb-5'>
-        <h1 className='text-color-header-primary text-[3.375rem] font-bold tracking-tight lg:text-8xl'>
+      <div className='pb-5'>
+        <h1 className='text-color-header-primary leading text-[3.375rem] font-bold tracking-tight lg:text-8xl'>
           MileMetrics
         </h1>
 
-        <p className='pl-1.25 text-base leading-1.5 font-medium tracking-tight text-gray-500/75 lg:text-xl'>
+        <p className='pl-1.25 text-base leading-1 font-medium tracking-tight text-gray-500/75 lg:text-xl'>
           A smarter way to track every mile
         </p>
       </div>
