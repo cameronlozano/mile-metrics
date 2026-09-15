@@ -20,6 +20,13 @@
   --font-data: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
   --breakpoint-xs: 29rem;
 
+  /* FONTS */
+  --font-50px: 3.125rem;
+  --font-28px: 1.75rem;
+  --font-15px: 0.9375rem;
+  --font-10px: 0.625rem;
+  --font-11px: 0.6875rem;
+
   /* COLORS */
   --color-color-bg: #f9fafb;
   --color-color-brand-primary: var(--color-emerald-600);
@@ -34,10 +41,16 @@
     transparent
   );
 
-  /* PRIMARY -> TERTIARY HEADERS */
-  --color-color-header-primary-dark: var(--color-gray-800);
+  /* PRIMARY -> SECONDARY -> TERTIARY  */
+  --color-color-header-primary-dark: color-mix(
+    in oklab,
+    var(--color-gray-800) 90%,
+    transparent
+  );
+  /* PRIMARY */
   --color-color-header-primary: var(--color-gray-700);
 
+  /* SECONDARY */
   --color-color-header-secondary: var(--color-gray-600);
   --color-color-header-secondary-muted: color-mix(
     in oklab,
@@ -45,6 +58,7 @@
     transparent
   );
 
+  /* TERTIARY */
   --color-color-header-tertiary: var(--color-gray-500);
 
   --color-color-field-label: var(--color-gray-600);
