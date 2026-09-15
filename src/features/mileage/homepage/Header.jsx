@@ -3,12 +3,12 @@ import cn from '../../../utils/cn';
 
 const Header = () => {
   const liStyling = cn(
-    'flex text-(length:--font-11px) font-medium text-gray-500/75 uppercase lg:text-xs',
+    'flex text-(length:--font-11px) font-light text-gray-500/75 uppercase lg:text-xs',
   );
   return (
-    <div className='relative'>
+    <div className='relative flex w-full flex-col'>
       {/* TRACK - DEDUCT - GO FURTHER */}
-      <ul className='absolute -top-1.5 flex items-center gap-5 pl-0.5 lg:mb-0.5 lg:pl-1.5'>
+      <ul className='mx-auto flex gap-5 lg:absolute lg:-top-1.5 lg:mb-0.5 lg:pl-1.5'>
         <li className={liStyling}>Track</li>
         <DotSeparator renderAs='li' />
         <li className={liStyling}>Deduct</li>
@@ -17,12 +17,12 @@ const Header = () => {
       </ul>
 
       {/* Primary header */}
-      <div className='pb-5'>
-        <h1 className='text-color-header-primary leading text-[3.375rem] font-bold tracking-tight lg:text-8xl'>
+      <div className='pb-7'>
+        <h1 className='text-color-header-primary pb-1.5 text-[3.375rem] leading-15 font-bold tracking-tighter lg:text-8xl'>
           MileMetrics
         </h1>
 
-        <p className='pl-1.25 text-base leading-1 font-medium tracking-tight text-gray-500/75 lg:text-xl'>
+        <p className='pl-1.25 text-base leading-1 font-medium tracking-tighter text-gray-500/75 lg:text-xl'>
           A smarter way to track every mile
         </p>
       </div>
