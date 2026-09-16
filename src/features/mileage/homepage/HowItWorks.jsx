@@ -24,7 +24,7 @@ const HowItWorks = () => {
     <div className='bg-color-bg flex w-full flex-col border-t-2 border-b-2 border-gray-400/20 pt-4 shadow-sm lg:h-65 lg:pl-11.25'>
       {/* SECTION HEADER */}
       <div className='flex flex-col pb-8 lg:w-125 lg:items-center'>
-        <p className='text-color-subtle mx-auto text-(length:--font-11px) font-light uppercase lg:pl-1 lg:font-medium lg:tracking-wider'>
+        <p className='text-color-subtle mx-auto text-(length:--font-8px) font-light uppercase lg:pl-1 lg:font-medium lg:tracking-wider'>
           Make more on every mile
         </p>
 
@@ -34,7 +34,7 @@ const HowItWorks = () => {
           <h2>Save.</h2>
         </div>
 
-        <p className='text-color-subtle text-balanced mx-auto flex w-[80%] text-center text-sm font-medium tracking-wide'>
+        <p className='text-color-subtle text-balanced mx-auto flex w-[83%] text-(length:--font-10px) font-medium tracking-wide'>
           Whether you're a freelancer, contractor, or business owner,
           MileMetrics helps you keep accurate mileage records and maximize what
           you earn.

@@ -11,7 +11,7 @@ export default function Navbar() {
     );
 
   return (
-    <div className='z-50 flex h-13 items-center justify-between px-1.5 text-xs lg:px-3'>
+    <div className='z-50 flex h-13 items-center justify-between px-1.5 text-(length:--font-10px) lg:px-3'>
       {/* LOGO */}
       <NavLink className={({ isActive }) => navLinkStyling(isActive)} to='/'>
         <img src={logo} alt='MileMetrics' className='h-6 lg:h-6.5' />

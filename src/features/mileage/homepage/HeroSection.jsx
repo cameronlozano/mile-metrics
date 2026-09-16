@@ -3,23 +3,22 @@ import HeroActions from './HeroActions';
 import HeroEyebrow from './HeroEyebrow';
 import HeroImg from './HeroImg';
 
-const HeroSection = () => {
-  return (
-    <>
-      <div className='xs:h-0 relative'>
-        <HeroImg />
-        <HeroEyebrow />
-      </div>
+const HeroSection = () => (
+  <div className='grid grid-cols-1'>
+    <div className='xs:col-start-1 xs:row-start-1 pb-1'>
+      <HeroImg />
+    </div>
 
-      <div className='xs:pl-1 relative z-100 flex items-center pb-5 pl-5'>
-        <Header />
-      </div>
+    <div className='xs:pb-5'>
+      <HeroEyebrow />
+    </div>
 
-      <div>
-        <HeroActions />
-      </div>
-    </>
-  );
-};
+    <div className='xs:col-start-1 xs:row-start-1 xs:pb-0.5 xs:pt-1.5 pb-2 pl-1.5'>
+      <Header />
+    </div>
+
+    <HeroActions />
+  </div>
+);
 
 export default HeroSection;
