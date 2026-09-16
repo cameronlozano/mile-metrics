@@ -11,7 +11,7 @@ const HeroActions = () => {
           renderAs={Link}
           to='/login'
           variant='submit'
-          className='group relative flex w-35 text-sm lg:ml-15 lg:w-43'
+          className='group xs:py-2.5 relative flex w-35 text-sm'
         >
           <p className='text-nowrap lg:pl-5'>
             Get Started
