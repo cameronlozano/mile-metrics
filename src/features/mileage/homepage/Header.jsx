@@ -9,7 +9,7 @@ const Header = () => {
         A smarter way to track every mile
       </p>
 
-      <p className='xs:w-[40%] xs:text-(length:--font-9px) text-color-subtle xs:font-light xs:pl-0 xs:text-start w-[70%] pl-1.5 text-center text-(length:--font-9px) font-medium text-pretty lg:w-100'>
+      <p className='xs:w-[42%] xs:text-(length:--font-9px) text-color-subtle xs:font-light xs:pl-1 xs:text-start w-[70%] pl-1.5 text-center text-(length:--font-9px) font-medium text-pretty lg:w-100'>
         Log your drives, organize your records, and get IRS-ready reports - all
         in one place
       </p>

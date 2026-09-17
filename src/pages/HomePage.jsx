@@ -7,11 +7,11 @@ export default function HomePage() {
   return (
     // Container
     <div className='w-full bg-white pb-5'>
-      <section className='relative mb-10 lg:pb-9'>
+      <section className='xs:mb-8 relative mb-10'>
         <HeroSection />
       </section>
 
-      <section className='relative flex flex-col gap-3 lg:mb-12'>
+      <section className='relative flex flex-col gap-3'>
         <ProductHighlights />
 
         <div className='right-15 lg:absolute lg:-top-5.75'>

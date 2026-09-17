@@ -8,24 +8,24 @@ import cn from '../../../utils/cn';
 
 const ProductHighlights = () => {
   const ulStyling = cn(
-    'flex w-full flex-col items-start lg:gap-10 lg:pt-1 lg:pl-10',
+    'xs:grid xs:grid-cols-2 flex w-full flex-col items-start',
   );
 
-  const liStyling = cn('flex items-center gap-3 pb-10 pl-5 lg:w-50');
+  const liStyling = cn(
+    'xs:flex-col xs:gap-1.5 xs:pl-0 flex items-center gap-3 pb-10 pl-5',
+  );
 
   const svgStyling = cn(
-    'items- mb-4 mb-auto w-fit rounded-md bg-emerald-200/45 p-1.25 text-green-700 lg:mx-auto lg:mb-2.25',
+    'xs:size-6 xs:mx-auto mb-4 mb-auto w-fit rounded-md bg-emerald-200/45 p-1.25 text-green-700 lg:mx-auto lg:mb-2.25',
   );
-
-  const svgSize = 27;
 
   const divStyling = cn('flex flex-col gap-2');
 
   const h3Styling = cn(
-    'lg:text-15px text-color-header-primary w-30 pt-1 text-sm font-medium tracking-tight lg:mx-auto lg:pb-0.5 lg:pb-2',
+    'text-color-header-primary xs:mx-auto xs:text-center xs:text-xs xs:text-color-header-secondary w-30 pt-1 text-sm font-medium tracking-tight',
   );
   const pStyling = cn(
-    'text-color-subtle lg:text-color-subtle mx-auto w-40 text-xs font-medium text-pretty',
+    'text-color-subtle lg:text-color-subtle xs:text-center xs:flex xs:font-light mx-auto w-40 text-xs font-medium text-pretty',
   );
 
   const features = [
@@ -55,7 +55,7 @@ const ProductHighlights = () => {
     <ul className={ulStyling}>
       {features.map(({ title, icon: Svg, description }) => (
         <li className={liStyling} key={title}>
-          <Svg className={svgStyling} size={svgSize} />
+          <Svg className={svgStyling} />
 
           <div className={divStyling}>
             <h3 className={h3Styling}>{title}</h3>

@@ -13,7 +13,7 @@ const HeroSection = () => (
       <HeroEyebrow />
     </div>
 
-    <div className='xs:col-start-1 xs:row-start-1 xs:pb-0.5 xs:pt-1.5 pb-2 pl-1.5'>
+    <div className='xs:col-start-1 xs:row-start-1 xs:pb-0.5 xs:pt-1.5 pb-4 pl-1.5'>
       <Header />
     </div>
 
