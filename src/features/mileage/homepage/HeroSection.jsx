@@ -5,7 +5,7 @@ import HeroImg from './HeroImg';
 
 const HeroSection = () => (
   <div className='grid grid-cols-1'>
-    <div className='xs:col-start-1 xs:row-start-1 pb-1'>
+    <div className='xs:col-start-1 xs:row-start-1 pb-2.5'>
       <HeroImg />
     </div>
 

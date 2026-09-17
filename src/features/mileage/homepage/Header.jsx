@@ -5,11 +5,11 @@ const Header = () => {
         MileMetrics
       </h1>
 
-      <p className='xs:pl-0.5 xs:leading-none xs:text-[clamp(0.25rem,-0.036rem+3.387vw,3.75rem)] text-color-subtle xs:pb-2.5 pb-4.5 pl-1 text-sm leading-1 font-medium tracking-tighter'>
+      <p className='xs:pl-0.5 xs:leading-none xs:text-[clamp(0.25rem,-0.036rem+3.387vw,3.75rem)] text-color-subtle xs:pb-[4%] pb-4.5 pl-1 text-sm leading-1 font-medium tracking-tighter'>
         A smarter way to track every mile
       </p>
 
-      <p className='xs:w-[42%] xs:text-[clamp(0.5625rem,0.160rem+1.742vw,2.25rem)] text-color-subtle xs:font-light xs:pl-1 xs:text-start w-[70%] pl-1.5 text-center text-(length:--font-9px) font-medium text-pretty'>
+      <p className='xs:w-[35%] xs:text-[clamp(0.5625rem,0.160rem+1.742vw,2.25rem)] text-color-subtle xs:font-light xs:pl-1 xs:text-start w-[70%] pl-1.5 text-center text-(length:--font-9px) font-medium text-pretty'>
         Log your drives, organize your records, and get IRS-ready reports - all
         in one place
       </p>
