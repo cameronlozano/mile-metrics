@@ -64,7 +64,7 @@ const HowItWorks = () => {
           <h2>Save.</h2>
         </div>
 
-        <p className='text-color-subtle text-balanced xs:text-(length:--font-8px) xs:text-center mx-auto flex w-[83%] text-center text-(length:--font-10px) font-medium tracking-wide'>
+        <p className='text-color-subtle text-balanced xs:text-(length:--font-10px) xs:text-center mx-auto flex w-[83%] text-center text-(length:--font-10px) font-medium tracking-wide'>
           Freelancers, contractors and business owners, MileMetrics helps you
           keep accurate mileage records and maximize what you earn.
         </p>
