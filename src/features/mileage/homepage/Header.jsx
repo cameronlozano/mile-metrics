@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <div className='xs:pb-4.5 xs:items-start flex flex-col items-center'>
+    <div className='xs:items-start flex flex-col items-center'>
       <h1 className='text-color-header-primary xs:text-start xs:bg-clip-text xs:bg-linear-to-r xs:from-color-header-primary via-text-color-header-tertiar xs:to-color-brand-primary xs:text-transparent xs:text-[clamp(1.875rem,0.413rem+6.323vw,8rem)] xs:leading-none xs:pb-1 w-full pb-1 text-center text-(length:--font-54px) leading-15 font-bold tracking-tighter'>
         MileMetrics
       </h1>
