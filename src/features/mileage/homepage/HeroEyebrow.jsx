@@ -2,11 +2,11 @@ import cn from '../../../utils/cn';
 import DotSeparator from '../../../ui/DotSeparator';
 
 const liStyling = cn(
-  'flex text-(length:--font-8px) font-light text-gray-500/75 uppercase lg:text-xs',
+  'flex text-[clamp(0.5rem,calc(0.023rem+2.065vw),2.5rem)] font-light text-gray-500/75 uppercase lg:mx-auto',
 );
 
 const HeroEyebrow = () => (
-  <ul className='flex justify-evenly lg:absolute lg:-top-1.5 lg:mb-0.5 lg:pl-1.5'>
+  <ul className='flex justify-evenly'>
     <li className={liStyling}>Track</li>
     <DotSeparator renderAs='li' />
     <li className={liStyling}>Deduct</li>

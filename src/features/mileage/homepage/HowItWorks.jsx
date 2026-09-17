@@ -34,15 +34,15 @@ const HowItWorks = () => {
   const liStyling = cn('xs:flex-1 flex flex-col items-center pb-10');
 
   const imgStyling = cn(
-    'xs:w-[70%] mb-2 aspect-video w-[78%] rounded-xl border border-gray-300 shadow-sm lg:w-50',
+    'xs:w-[70%] mb-2 aspect-video w-[78%] rounded-xl border border-gray-300 shadow-sm',
   );
 
   const h3Styling = cn(
-    'text-color-subtle xs:text-(length:--font-20px) xs pb-1.5 text-2xl font-bold lg:pl-1',
+    'text-color-subtle xs:text-[clamp(1.25rem,calc(0.802rem+1.935vw),3.125rem)] pb-1.5 text-2xl font-bold',
   );
 
   const pStyling = cn(
-    'text-color-header-tertiary xs:text-center xs:w-24 xs:text-(length:--font-10px) mb-1 w-[80%] text-center text-sm font-medium lg:max-w-55 lg:pl-1',
+    'text-color-header-tertiary xs:text-center xs:w-[80&] xs:text-[clamp(0.625rem,calc(0.401rem+0.968vw),1.5625rem)] mb-1 w-[80%] text-center text-sm font-medium',
   );
 
   const aStyling = cn(
@@ -51,20 +51,20 @@ const HowItWorks = () => {
 
   return (
     // CONTAINER
-    <div className='bg-color-bg flex w-full flex-col border-t-2 border-b-2 border-gray-400/20 pt-4 shadow-sm lg:h-65'>
+    <div className='bg-color-bg flex w-full flex-col border-t-2 border-b-2 border-gray-400/20 pt-4 shadow-sm'>
       {/* SECTION HEADER */}
-      <div className='xs:pb-3 flex flex-col pb-8 lg:w-125 lg:items-center'>
+      <div className='xs:pb-3 flex w-full flex-col pb-8'>
         <p className='text-color-subtle mx-auto text-(length:--font-8px) font-light uppercase lg:pl-1 lg:font-medium lg:tracking-wider'>
           Make more on every mile
         </p>
 
-        <div className='mx-[10%] flex justify-center gap-[7%] pb-1 text-[clamp(var(--font-28px),calc(0.537rem+5.39vw),var(--font-50px))] font-bold text-gray-700 lg:gap-5 lg:text-(length:--font-50px) lg:tracking-wide'>
+        <div className='text-color-header-secondary mx-[10%] flex gap-[7%] pb-1 text-[clamp(var(--font-28px),calc(1.049rem+3.032vw),var(--font-75px))] font-bold lg:mx-0 lg:justify-evenly lg:gap-0'>
           <h2>Drive.</h2>
           <h2>Track.</h2>
           <h2>Save.</h2>
         </div>
 
-        <p className='text-color-subtle text-balanced xs:text-(length:--font-10px) xs:text-center mx-auto flex w-[83%] text-center text-(length:--font-10px) font-medium tracking-wide'>
+        <p className='text-color-subtle text-balanced xs:text-center xs:w-[90%] xs:tracking-wider mx-auto flex w-[83%] text-center text-[clamp(0.625rem,calc(0.35rem+1.375vw),2rem)] font-medium tracking-wide'>
           Freelancers, contractors and business owners, MileMetrics helps you
           keep accurate mileage records and maximize what you earn.
         </p>
