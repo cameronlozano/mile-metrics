@@ -6,7 +6,7 @@ const DotSeparator = ({ renderAs = 'span', className }) => {
   return (
     <Element
       aria-hidden='true'
-      className={cn('text-[0.625rem] text-gray-500', className)}
+      className={cn('text-(length:--font-8px) text-gray-400', className)}
     >
       •
     </Element>
