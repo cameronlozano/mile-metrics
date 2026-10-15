@@ -1,112 +1,79 @@
+/* eslint-disable no-unused-vars */
+
 import {
   Car,
   ChartNoAxesCombined,
   NotebookText,
   ShieldCheck,
 } from 'lucide-react';
+
 import cn from '../../../utils/cn';
 
 const ProductHighlights = () => {
-  const ulStyling = cn(
-    'xs:grid xs:grid-cols-2 flex w-full flex-col items-start',
+  // #region Container styles
+  const containerStyles = cn('gap-x-space-md gap-y-space-xs grid grid-cols-2');
+
+  const listItemContainerStyles = cn(
+    'flex w-22 flex-col items-center gap-2 rounded-sm py-3 odd:justify-self-end even:justify-self-start',
   );
 
-  const liStyling = cn(
-    'xs:flex-col xs:gap-1.5 xs:pl-0 flex items-center gap-3 pb-10 pl-5',
+  const textContainerStyles = cn('flex flex-col items-center gap-1');
+  //  #endregion
+
+  // #region List item styles
+  const iconStyling = cn(
+    'text-svg-brand-muted bg-bg-brand border-border-brand-muted size-5.25 rounded-sm border p-1',
   );
 
-  const svgStyling = cn(
-    'xs:size-6 xs:mx-auto mb-4 mb-auto w-fit rounded-md bg-emerald-200/45 p-1.25 text-green-700 lg:mx-auto lg:mb-2.25',
-  );
+  const h3Styling = cn('text-text-heading text-center text-[8px] font-bold');
 
-  const divStyling = cn('flex flex-col gap-2');
-
-  const h3Styling = cn(
-    'text-color-header-primary xs:mx-auto xs:text-center xs:text-xs xs:text-color-header-secondary w-30 pt-1 text-sm font-medium tracking-tight',
-  );
   const pStyling = cn(
-    'text-color-subtle lg:text-color-subtle xs:text-center xs:flex xs:font-light mx-auto w-40 text-xs font-medium text-pretty',
+    'text-text-subtitle w-[95%] text-center text-[6px] leading-2 font-medium tracking-tight text-balance',
   );
+  // #endregion
 
   const features = [
     {
       icon: Car,
-      title: 'Track with Ease',
+      title: 'Fast Tracking',
       description: 'Log your miles in seconds from any device',
     },
     {
       icon: ChartNoAxesCombined,
-      title: 'Get Clear Insights',
+      title: 'Trip Analytics',
       description: 'See your driving history and total deductions',
     },
     {
       icon: NotebookText,
-      title: 'Stay Tax Ready',
-      description: 'Export clean IRS-ready reports anytime',
+      title: 'Tax Support',
+      description:
+        'Easily export clean IRS-ready reports at anytime without costs',
     },
     {
       icon: ShieldCheck,
-      title: 'Your Data - Secured',
-      description: 'Powered by Supabase and modern security',
+      title: 'Advanced Security',
+      description: 'Powered by Supabase & modern best practices',
     },
   ];
 
   return (
-    <ul className={ulStyling}>
-      {features.map(({ title, icon: Svg, description }) => (
-        <li className={liStyling} key={title}>
-          <Svg className={svgStyling} />
+    <>
+      <h2 className={cn('sr-only')}>Product Highlights</h2>
 
-          <div className={divStyling}>
-            <h3 className={h3Styling}>{title}</h3>
-            <p className={pStyling}>{description}</p>
-          </div>
-        </li>
-      ))}
-    </ul>
+      <ul className={containerStyles}>
+        {features.map(({ title, icon: Svg, description }, index) => (
+          <li className={listItemContainerStyles} key={title}>
+            <Svg className={iconStyling} />
+
+            <div className={textContainerStyles}>
+              <h3 className={h3Styling}>{title}</h3>
+              <p className={pStyling}>{description}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </>
   );
-
-  // return (
-  //   <ul className={ulStyling}>
-  //     <li className={liStyling}>
-  //       <div className={divStyling}>
-  //         <Car className={svgStyling} size={svgSize} />
-  //       </div>
-  //       <h3 className={h3Styling}>Track with Ease</h3>
-  //       <p className={pStyling}>Log your miles in seconds from any device</p>
-  //     </li>
-
-  //     <li className={liStyling}>
-  //       <div className={svgStyling}>
-  //         <ChartNoAxesCombined size={svgSize} />
-  //       </div>
-  //       <h3 className={h3Styling}>Get Clear Insights</h3>
-  //       <p className={pStyling}>
-  //         See your driving history and total deductions
-  //       </p>
-  //     </li>
-
-  //     <li className={liStyling}>
-  //       <div className={svgStyling}>
-  //         <NotebookText size={svgSize} />
-  //       </div>
-  //       <h3 className={h3Styling}>Stay Tax Ready</h3>
-  //       <p className={pStyling}>
-  //         Export clean IRS-ready reports <em>anytime</em>
-  //       </p>
-  //     </li>
-
-  //     <li className={liStyling}>
-  //       <div className={svgStyling}>
-  //         <ShieldCheck size={svgSize} />
-  //       </div>
-  //       <h3 className={h3Styling}>Your Data - Secured</h3>
-  //       <p className={pStyling}>
-  //         Powered by <em>Supabase</em> and modern security
-  //       </p>
-  //     </li>
-  //   </ul>
-  // );
 };
 
 export default ProductHighlights;

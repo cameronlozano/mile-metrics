@@ -1,18 +1,37 @@
+import cn from '../../../utils/cn';
+import HeroActions from './HeroActions';
+
 const Header = () => {
+  const containerStyling = cn('flex h-full flex-col');
+  const titleContainerStyling = cn('flex flex-col');
+  const heroActionsContainer = cn('pb-space-2xs my-auto');
+
+  const titleStyling = cn('text-text-heading pt-space-2xs font-bold');
+
+  const subtitleStyling = cn(
+    'text-text-subtitle mb-space-2xs text-[8px] font-light tracking-tighter',
+  );
+
+  const descriptionStyling = cn(
+    'text-text-subtitle w-[75%] text-[6px] font-semibold text-balance',
+  );
+
   return (
-    <div className='xs:items-start flex flex-col items-center'>
-      <h1 className='text-color-header-primary xs:text-start xs:bg-clip-text xs:bg-linear-to-r xs:from-color-header-primary via-text-color-header-tertiar xs:to-color-brand-primary xs:text-transparent xs:text-[clamp(1.875rem,0.413rem+6.323vw,8rem)] xs:leading-none xs:pb-1 w-full pb-1 text-center text-(length:--font-54px) leading-15 font-bold tracking-tighter'>
-        MileMetrics
-      </h1>
+    <div className={containerStyling}>
+      <div className={titleContainerStyling}>
+        <h1 className={titleStyling}>MileMetrics</h1>
 
-      <p className='xs:pl-0.5 xs:leading-none xs:text-[clamp(0.25rem,-0.036rem+3.387vw,3.75rem)] text-color-subtle xs:pb-[4%] pb-4.5 pl-1 text-sm leading-1 font-medium tracking-tighter'>
-        A smarter way to track every mile
-      </p>
+        <p className={subtitleStyling}>The smarter way to track every mile</p>
 
-      <p className='xs:w-[35%] xs:text-[clamp(0.5625rem,0.160rem+1.742vw,2.25rem)] text-color-subtle xs:font-light xs:pl-1 xs:text-start w-[70%] pl-1.5 text-center text-(length:--font-9px) font-medium text-pretty'>
-        Log your drives, organize your records, and get IRS-ready reports - all
-        in one place
-      </p>
+        <p className={descriptionStyling}>
+          Log your drives, organize your records, and get IRS-ready reports -
+          all in one place
+        </p>
+      </div>
+
+      <div className={heroActionsContainer}>
+        <HeroActions />
+      </div>
     </div>
   );
 };

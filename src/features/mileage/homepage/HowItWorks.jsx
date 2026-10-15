@@ -1,93 +1,89 @@
 import driveImg from '../../../assets/drive.png';
-
 import trackImg from '../../../assets/track.png';
-
 import saveImg from '../../../assets/save.png';
-
 import cn from '../../../utils/cn';
 
-const howItWorksItems = [
+const steps = [
   {
     title: 'Drive',
     img: driveImg,
     description:
       'Nearly 12 million U.S. workers were independent contractors in 2023',
-    source: 'https://www.bls.gov/news.release/conemp.htm',
+    source:
+      '[https://www.bls.gov/news.release/conemp.htm](https://www.bls.gov/news.release/conemp.htm)',
   },
   {
     title: 'Track',
     img: trackImg,
     description:
       '47% of surveyed gig workers were unaware of tax deductions available to them',
-    source: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2784243',
+    source:
+      '[https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2784243](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2784243)',
   },
   {
     title: 'Save',
     img: saveImg,
     description:
       '10,000 qualifying business miles can represent a $7,600 deduction',
-    source: 'https://www.irs.gov/tax-professionals/standard-mileage-rates',
+    source:
+      '[https://www.irs.gov/tax-professionals/standard-mileage-rates](https://www.irs.gov/tax-professionals/standard-mileage-rates)',
   },
 ];
 
 const HowItWorks = () => {
-  const liStyling = cn('xs:flex-1 flex flex-col items-center pb-10');
-
-  const imgStyling = cn(
-    'xs:w-[70%] mb-2 aspect-video w-[78%] rounded-xl border border-gray-300 shadow-sm',
+  const sectionStyles = cn(
+    'bg-color-bg border-border-faint py-space-xs gap-space-md flex flex-col border-t border-b',
   );
 
-  const h3Styling = cn(
-    'text-color-subtle xs:text-[clamp(1.25rem,calc(0.802rem+1.935vw),3.125rem)] pb-1.5 text-2xl font-bold',
+  const eyebrowStyles = cn(
+    'text-text-subtitle mx-auto text-[clamp(0.3125rem,calc(0.2125rem+0.5vw),0.8125rem)] font-light tracking-widest uppercase',
   );
 
-  const pStyling = cn(
-    'text-color-header-tertiary xs:text-center xs:w-[80&] xs:text-[clamp(0.625rem,calc(0.401rem+0.968vw),1.5625rem)] mb-1 w-[80%] text-center text-sm font-medium',
+  // #region Step styles
+  const stepsListStyles = cn('gap-space-lg flex flex-col');
+
+  const stepItemStyles = cn('grid grid-cols-2 items-center');
+
+  const stepContentStyles = cn('gap-y-space-2xs flex flex-col text-center');
+
+  const stepImageStyles = cn(
+    'border-border-moderate mr-space-xs ml-auto aspect-video w-[90%] rounded-md border shadow-sm',
   );
 
-  const aStyling = cn(
-    'text-color-subtle xs: xs:text-(length:--font-8px) ml-1 text-(length:--font-10px) tracking-tight transition-all duration-100 hover:text-gray-600',
+  const stepHeadingStyles = cn('text-text-heading font-bold');
+
+  const stepDescriptionStyles = cn(
+    'text-text-subtitle mx-auto w-[75%] text-[6px] font-medium',
   );
+
+  const stepSourceLinkStyles = cn(
+    'text-text-subtitle block text-[6px] tracking-tight',
+  );
+  // #endregion
 
   return (
-    // CONTAINER
-    <div className='bg-color-bg flex w-full flex-col border-t-2 border-b-2 border-gray-400/20 pt-4 shadow-sm'>
-      {/* SECTION HEADER */}
-      <div className='xs:pb-3 flex w-full flex-col pb-8'>
-        <p className='text-color-subtle mx-auto text-(length:--font-8px) font-light uppercase lg:pl-1 lg:font-medium lg:tracking-wider'>
-          Make more on every mile
-        </p>
+    <div className={sectionStyles}>
+      <p className={eyebrowStyles}>Make more on every mile</p>
 
-        <div className='text-color-header-secondary mx-[10%] flex gap-[7%] pb-1 text-[clamp(var(--font-28px),calc(1.049rem+3.032vw),var(--font-75px))] font-bold lg:mx-0 lg:justify-evenly lg:gap-0'>
-          <h2>Drive.</h2>
-          <h2>Track.</h2>
-          <h2>Save.</h2>
-        </div>
+      <ul className={stepsListStyles}>
+        {steps.map(({ title, img, description, source }) => (
+          <li key={title} className={stepItemStyles}>
+            <div className={stepContentStyles}>
+              <h2 className={stepHeadingStyles}>{title}</h2>
 
-        <p className='text-color-subtle text-balanced xs:text-center xs:w-[90%] xs:tracking-wider mx-auto flex w-[83%] text-center text-[clamp(0.625rem,calc(0.35rem+1.375vw),2rem)] font-medium tracking-wide'>
-          Freelancers, contractors and business owners, MileMetrics helps you
-          keep accurate mileage records and maximize what you earn.
-        </p>
-      </div>
+              <p className={stepDescriptionStyles}>{description}</p>
 
-      {/* SUB-HEADERS */}
-      <ul className='xs:flex-row xs:ml-0 flex flex-col pl-1'>
-        {howItWorksItems.map(({ title, img, description, source }) => (
-          <li key={title} className={liStyling}>
-            <img className={imgStyling} src={img} alt='' />
+              <a
+                href={source}
+                className={stepSourceLinkStyles}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                source
+              </a>
+            </div>
 
-            <h3 className={h3Styling}>{title}</h3>
-
-            <p className={pStyling}>{description}</p>
-
-            <a
-              href={source}
-              className={aStyling}
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              source
-            </a>
+            <img className={stepImageStyles} src={img} alt='' />
           </li>
         ))}
       </ul>

@@ -5,7 +5,7 @@
   html,
   body {
     scrollbar-gutter: stable;
-    background-color: #f9fafb;
+    background-color: var(--color-bg-alt);
   }
 }
 
@@ -16,112 +16,134 @@
 }
 
 @theme {
+  /* #region Fonts */
+
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-data: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
 
-  /* BREAKPOINTS */
-  --breakpoint-xs: 370px;
-
-  /* #region Font Size Tokens */
-  --font-8px: 0.5rem;
-  --font-9px: 0.5625rem;
-  --font-10px: 0.625rem;
-  --font-11px: 0.6875rem;
-  --font-12px: 0.75rem;
-  --font-13px: 0.8125rem;
-  --font-14px: 0.875rem;
-  --font-15px: 0.9375rem;
-  --font-16px: 1rem;
-  --font-17px: 1.0625rem;
-  --font-18px: 1.125rem;
-  --font-19px: 1.1875rem;
-  --font-20px: 1.25rem;
-  --font-21px: 1.3125rem;
-  --font-22px: 1.375rem;
-  --font-23px: 1.4375rem;
-  --font-24px: 1.5rem;
-  --font-25px: 1.5625rem;
-  --font-26px: 1.625rem;
-  --font-27px: 1.6875rem;
-  --font-28px: 1.75rem;
-  --font-29px: 1.8125rem;
-  --font-30px: 1.875rem;
-  --font-31px: 1.9375rem;
-  --font-32px: 2rem;
-  --font-33px: 2.0625rem;
-  --font-34px: 2.125rem;
-  --font-35px: 2.1875rem;
-  --font-36px: 2.25rem;
-  --font-37px: 2.3125rem;
-  --font-38px: 2.375rem;
-  --font-39px: 2.4375rem;
-  --font-40px: 2.5rem;
-  --font-41px: 2.5625rem;
-  --font-42px: 2.625rem;
-  --font-43px: 2.6875rem;
-  --font-44px: 2.75rem;
-  --font-45px: 2.8125rem;
-  --font-46px: 2.875rem;
-  --font-47px: 2.9375rem;
-  --font-48px: 3rem;
-  --font-49px: 3.0625rem;
-  --font-50px: 3.125rem;
-  --font-51px: 3.1875rem;
-  --font-52px: 3.25rem;
-  --font-53px: 3.3125rem;
-  --font-54px: 3.375rem;
-  --font-75px: 4.6875rem;
   /* #endregion */
 
-  /* COLORS */
-  --color-color-bg: #f9fafb;
-  --color-color-brand-primary: var(--color-emerald-600);
-  --color-color-brand-primary-darker: color-mix(
-    in oklab,
-    var(--color-emerald-700) 100%,
-    transparent
-  );
-  --color-color-brand-primary-muted: color-mix(
-    in oklab,
-    var(--color-emerald-600) 95%,
-    transparent
-  );
+  /* #region BREAKPOINTS */
 
-  /* PRIMARY -> SECONDARY -> TERTIARY  */
-  --color-color-header-primary-dark: color-mix(
-    in oklab,
-    var(--color-gray-800) 90%,
-    transparent
-  );
-  /* PRIMARY */
-  --color-color-header-primary: var(--color-gray-700);
+  /* --breakpoint-xs: 370px; */
+  --breakpoint-sm: 400px;
+  --breakpoint-md: 600px;
+  --breakpoint-lg: 798px;
 
-  /* SECONDARY */
-  --color-color-header-secondary: var(--color-gray-600);
-  --color-color-header-secondary-muted: color-mix(
-    in oklab,
-    var(--color-gray-600) 85%,
-    transparent
-  );
+  --breakpoint-mid: 1000px;
 
-  /* TERTIARY */
-  --color-color-header-tertiary: var(--color-gray-500);
+  /* #endregion */
 
-  --color-color-field-label: var(--color-gray-600);
-  --color-color-field-placeholder: color-mix(
-    in oklab,
-    var(--color-slate-500) 80%,
-    transparent
-  );
+  /* #region COLORS */
 
-  --color-color-subtle: color-mix(
-    in oklab,
-    var(--color-slate-600) 83%,
-    transparent
-  );
+  /* #region PRIMITIVE TOKENS */
+  /* #region Brand variations */
+  --green-1: #fbfefc; /* Background 1 */
+  --green-2: #f4fbf6; /* Background 2 */
 
-  /* Sizings */
-  --text-size-header-secondary: 3.25rem;
+  --green-3: #e6f6eb; /* Default component bg */
+  --green-4: #d6f1df; /* Hover component bg */
+  --green-5: #c4e8d1; /* Pressed component bg */
+
+  --green-6: #adddc0; /* Noninteractive subtle border */
+  --green-7: #8eceaa; /* Interactive subtle border */
+  --green-8: #5bb98b; /* Stronger Border */
+
+  --green-9: #30a46c; /* SOLID BG */
+  --green-10: #2b9a66; /* SOLID BG */
+
+  --green-11: #218358; /* Low contrast text */
+  --green-12: #204d39; /* High contrast text */
+
+  /* #endregion */
+
+  /* #region Achromatic variations */
+  --gray-1: #fcfcfc; /* Background 1 */
+  --gray-2: #f9f9f9; /* Background 2 */
+
+  --gray-3: #f0f0f0; /* Default component background */
+  --gray-4: #e8e8e8; /* Hover component background */
+  --gray-5: #e0e0e0; /* Pressed component background */
+
+  --gray-6: #d9d9d9; /* Noninteractive subtle border */
+  --gray-7: #cecece; /* Interactive subtle border */
+  --gray-8: #bbbbbb; /* Stronger Border */
+
+  --gray-9: #8d8d8d; /* SOLID BG */
+  --gray-10: #838383; /* SOLID BG */
+
+  --gray-11: #646464; /* Low contrast text */
+  --gray-12: #404040; /* High contrast text */
+  /* #endregion */
+  /* #endregion */
+
+  /* #region SEMANTIC TOKENS */
+
+  /* #region text colors */
+  --color-text-on-color: var(--gray-1);
+
+  --color-text-heading: var(--gray-12);
+  --color-text-subtitle: var(--gray-11);
+
+  --color-text-faint: rgb(from var(--gray-11) r g b / 0.9);
+
+  --color-text-brand-muted: var(--green-11);
+  --color-text-brand: var(--green-12);
+
+  /* #endregion */
+
+  /* #region background colors */
+  --color-bg-default: var(--gray-1);
+  --color-bg-alt: var(--gray-2);
+
+  --color-bg-brand: var(--green-3);
+
+  --color-component-filled: var(--green-9);
+  --color-component-filled-hover: var(--green-10);
+
+  /* #endregion */
+
+  /* #region border colors */
+  --color-border-faint: rgb(from var(--gray-5) r g b / 0.4);
+  --color-border-muted: var(--gray-6);
+  --color-border-moderate: var(--gray-7);
+
+  --color-border-brand-muted: var(--green-6);
+  --color-border-brand: var(--green-10);
+  /* #endregion */
+
+  /* #region SVG colors */
+  --color-svg-brand-muted: var(--green-11);
+  --color-svg-brand: var(--green-12);
+  /* #endregion */
+
+  /* #region underlines */
+  --color-underline-default-muted: var(--color-achromatic-600);
+  --color-underline-default: var(--color-achromatic-600);
+
+  --color-underline-brand-muted: var(--green-11);
+  --color-underline-brand: var(--green-12);
+
+  /* #endregion */
+
+  /* #region focus colors */
+  --color-focus-color-default: var(--color-brand-600);
+  /* #endregion */
+
+  /* #endregion SEMANTIC TOKENS */
+  /* #endregion COLORS */
+
+  /* #region Spacing */
+
+  --spacing-space-2xs: 0.25rem; /* 4px */
+  --spacing-space-xs: 0.5rem; /* 8px  */
+  --spacing-space-sm: 1rem; /* 16px */
+  --spacing-space-md: 1.5rem; /* 24px */
+  --spacing-space-lg: 2rem; /* 32px */
+  --spacing-space-xl: 3rem; /* 48px */
+  --spacing-space-2xl: 5rem; /* 80px */
+
+  /* #endregion 1$ */
 }
 
 .notes-scrollbar {

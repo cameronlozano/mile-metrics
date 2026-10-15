@@ -1,26 +1,40 @@
 import BuiltWith from '../features/mileage/homepage/BuiltWith';
+import HeroEyebrow from '../features/mileage/homepage/HeroEyebrow';
 import HeroSection from '../features/mileage/homepage/HeroSection';
 import HowItWorks from '../features/mileage/homepage/HowItWorks';
 import ProductHighlights from '../features/mileage/homepage/ProductHighlights';
+import cn from '../utils/cn';
 
 export default function HomePage() {
   return (
     // Container
-    <div className='w-full bg-white pb-5'>
-      <section className='xs:mb-8 relative mb-10'>
+    <div className={cn('mx-space-xs grid grid-cols-4')}>
+      <section
+        className={cn(
+          '-mx-space-xs mb-space-2xs border-b-border-muted col-span-4 row-start-1 border-b',
+        )}
+      >
         <HeroSection />
       </section>
 
-      <section className='relative flex flex-col gap-3'>
-        <ProductHighlights />
+      <div className={cn('mb-space-sm col-span-4 col-start-1 row-start-2')}>
+        <HeroEyebrow />
+      </div>
 
-        <div className='right-15 lg:absolute lg:-top-5.75'>
-          <BuiltWith />
-        </div>
+      <section className='mb-space-sm col-span-4 col-start-1 row-start-3'>
+        <ProductHighlights />
       </section>
 
-      <section>
+      <section
+        className={cn(
+          '-mx-space-xs mb-space-sm col-span-4 col-start-1 row-start-4',
+        )}
+      >
         <HowItWorks />
+      </section>
+
+      <section className='col-span-4 col-start-1 row-start-5'>
+        <BuiltWith />
       </section>
     </div>
   );

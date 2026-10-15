@@ -9,46 +9,39 @@ import vite from '../../../assets/logos/vite.png';
 import cn from '../../../utils/cn';
 
 const BuiltWith = () => {
-  const imgStyling = cn('w-20 grayscale-100');
+  const containerStyling = cn(
+    'pb-space-xs gap-space-xs flex flex-col items-center justify-center',
+  );
+
+  const titleStyling = cn(
+    'text-text-faint text-[7px] font-medium tracking-wider uppercase',
+  );
+
+  const ulStyling = cn('grid w-full grid-cols-4 place-items-center gap-y-2');
+
+  const imgStyling = cn('size-12 object-contain grayscale-100');
+
+  const logos = [
+    react,
+    tailwind,
+    vite,
+    supabase,
+    reactHookForm,
+    reactRouter,
+    reactAria,
+    tanstack,
+  ];
 
   return (
-    <div className='flex -translate-y-5 flex-col items-center justify-center'>
-      <p className='pb-5 font-bold tracking-wider text-gray-600/40 uppercase'>
-        Built With
-      </p>
+    <div className={containerStyling}>
+      <p className={titleStyling}>Built With</p>
 
-      <ul className='mx-2.5 grid grid-cols-4 place-items-center gap-x-5 gap-y-5 lg:gap-x-10'>
-        <li>
-          <img className={imgStyling} src={react} />
-        </li>
-
-        <li>
-          <img className={imgStyling} src={tailwind} />
-        </li>
-
-        <li>
-          <img className={imgStyling} src={vite} />
-        </li>
-
-        <li>
-          <img className={imgStyling} src={supabase} />
-        </li>
-
-        <li>
-          <img className={imgStyling} src={reactHookForm} />
-        </li>
-
-        <li>
-          <img className={imgStyling} src={reactRouter} />
-        </li>
-
-        <li>
-          <img className={imgStyling} src={reactAria} />
-        </li>
-
-        <li>
-          <img className={imgStyling} src={tanstack} />
-        </li>
+      <ul className={ulStyling}>
+        {logos.map((logo) => (
+          <li key={logo}>
+            <img className={imgStyling} src={logo} />
+          </li>
+        ))}
       </ul>
     </div>
   );

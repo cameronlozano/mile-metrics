@@ -1,41 +1,59 @@
 import { Link } from 'react-router';
 import Button from '../../../ui/Button';
 import { ArrowRight, MoveRight } from 'lucide-react';
+import cn from '../../../utils/cn';
 
 const HeroActions = () => {
+  // #region CONTAINER STYLING
+  const container = cn('flex items-center gap-2');
+  const secondaryContainer = cn('flex gap-1');
+  // #endregion
+
+  // #region Get started stylings
+  const buttonStyling = cn(
+    'group border-border-brand bg-component-filled relative flex items-center justify-center gap-0.5 rounded-full border px-1 py-1 shadow-sm',
+  );
+
+  const pStyling = cn(
+    'text-text-on-color text-[8px] leading-tight font-medium tracking-tight text-nowrap',
+  );
+
+  const svgStyling = cn('text-text-on-color size-2');
+  // #endregion
+
+  // #region Sign in stylings
+  const linkStyling = cn(
+    'text-text-subtitle group decoration-text-subtitle flex items-center gap-1 text-[8px] underline',
+  );
+
+  const signInIconStyling = cn(
+    'text-text-subtitle size-2.5 translate-y-px transition-all duration-125',
+  );
+
+  // #endregion
+
   return (
-    <div className='flex flex-col lg:w-90 lg:items-center'>
-      <div className='xs:justify-evenly flex items-center justify-evenly pb-1.5 lg:gap-7'>
-        {/* Get started button */}
-        <Button
-          renderAs={Link}
-          to='/login'
-          variant='submit'
-          className='group xs:py-2 xs:w-25 relative flex w-35 text-sm'
-        >
-          <p className='xs:text-(length:--font-10px) text-nowrap lg:pl-5'>
-            Get Started
-            <span className='xs:right-1 absolute top-1/2 right-3.5 -translate-y-1/2 transition-transform duration-100 group-hover:translate-x-1.5 lg:right-4'>
-              {<ArrowRight aria-hidden='true' className='xs:size-4 size-5' />}
-            </span>
-          </p>
+    <div className={container}>
+      {/* Get started button */}
 
-          {/* Completely free to use */}
-          <p className='text-color-subtle xs:text-(length:--font-8px) xs:-bottom-4.25 absolute -bottom-6.5 left-2.25 text-xs font-light tracking-tight'>
-            Completely free to use
-          </p>
-        </Button>
+      <Button
+        renderAs={Link}
 
-        {/* Sign in */}
-        <div className=''>
-          <Link
-            to='/login'
-            className='text-color-subtle group xs:text-sm flex items-center gap-2 tracking-tight'
-          >
-            Sign in
-            <MoveRight className='text-color-subtle transition-all duration-125' />
-          </Link>
-        </div>
+        to='/login'
+        variant='submit'
+        className={buttonStyling}
+      >
+        <p className={pStyling}>Get Started</p>
+        <ArrowRight aria-hidden='true' className={svgStyling} />
+      </Button>
+
+      {/* Sign in */}
+      <div className={secondaryContainer}>
+        <Link to='/login' className={linkStyling}>
+          Sign in
+        </Link>
+
+        <MoveRight className={signInIconStyling} />
       </div>
     </div>
   );
