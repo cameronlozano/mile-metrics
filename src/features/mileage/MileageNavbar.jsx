@@ -3,24 +3,45 @@ import logo from '../../assets/mileMetricsLogo.png';
 import cn from '../../utils/cn';
 
 export default function Navbar() {
-  const navLinkStyling = (isActive) =>
-    cn(
-      `text-color-header-tertiary relative flex rounded-sm font-medium tracking-tight outline-none after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-center after:translate-y-1 after:scale-x-0 after:bg-emerald-500 after:transition-transform after:duration-150 focus-visible:ring-3 focus-visible:ring-emerald-500 focus-visible:ring-offset-slate-100`,
+  // #region Stylings
+  const containerStyles = cn(
+    'px-space-xs bg-bg-alt border-border-muted h-space-md z-50 flex items-center justify-between border-b shadow-xs',
+  );
+  const navLinksContainerStyles = cn(
+    'gap-space-sm pr-space-2xs flex pt-0.75 leading-none',
+  );
 
+  const sharedStyles = (isActive) =>
+    cn(
+      `focus-visible:ring-focus-color-default outline-none focus-visible:rounded-xs focus-visible:ring-2`,
+      // selectedIndicatorStyles,
       isActive && 'after:scale-x-100',
     );
 
+  const selectedIndicatorStyles = cn(
+    'after:bg-underline-default after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-center after:translate-y-1 after:scale-x-0 after:transition-transform after:duration-150',
+  );
+
+  const svgStyles = cn('h-space-sm');
+
+  const textLinkStyles = cn(
+    'text-text-brand text-[7px] font-semibold tracking-tight',
+  );
+  // #endregion stylings
+
   return (
-    <div className='z-50 flex h-13 items-center justify-between px-1.5 text-(length:--font-10px) lg:px-3'>
+    <div className={containerStyles}>
       {/* LOGO */}
-      <NavLink className={({ isActive }) => navLinkStyling(isActive)} to='/'>
-        <img src={logo} alt='MileMetrics' className='h-6 lg:h-6.5' />
+      <NavLink className={({ isActive }) => sharedStyles(isActive)} to='/'>
+        <img src={logo} alt='MileMetrics' className={svgStyles} />
       </NavLink>
 
       {/* LOGIN */}
-      <div className='flex w-60 items-end justify-end gap-4.25 pt-1.25 pr-1 lg:ml-auto lg:gap-8 lg:pr-9'>
+      <div className={navLinksContainerStyles}>
         <NavLink
-          className={({ isActive }) => cn(navLinkStyling(isActive), 'lg:p-0.5')}
+          className={({ isActive }) =>
+            cn(sharedStyles(isActive), textLinkStyles)
+          }
           to={'/login'}
         >
           Login
@@ -28,7 +49,9 @@ export default function Navbar() {
 
         {/* ADD MILES */}
         <NavLink
-          className={({ isActive }) => cn(navLinkStyling(isActive), 'lg:p-0.5')}
+          className={({ isActive }) =>
+            cn(sharedStyles(isActive), textLinkStyles)
+          }
           to={'/add-miles'}
         >
           Add Miles
@@ -36,7 +59,9 @@ export default function Navbar() {
 
         {/* VIEW MILES */}
         <NavLink
-          className={({ isActive }) => cn(navLinkStyling(isActive), 'lg:p-0.5')}
+          className={({ isActive }) =>
+            cn(sharedStyles(isActive), textLinkStyles)
+          }
           to={'view-miles'}
         >
           View miles
