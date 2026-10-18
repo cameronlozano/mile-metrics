@@ -32,7 +32,7 @@ const ProductHighlights = () => {
   );
   // #endregion
 
-  const features = [
+  const listItems = [
     {
       icon: Car,
       title: 'Fast Tracking',
@@ -46,8 +46,7 @@ const ProductHighlights = () => {
     {
       icon: NotebookText,
       title: 'Tax Support',
-      description:
-        'Easily export clean IRS-ready reports at anytime without costs',
+      description: 'Export IRS-ready reports easily, quickly',
     },
     {
       icon: ShieldCheck,
@@ -61,7 +60,7 @@ const ProductHighlights = () => {
       <h2 className={cn('sr-only')}>Product Highlights</h2>
 
       <ul className={containerStyles}>
-        {features.map(({ title, icon: Svg, description }, index) => (
+        {listItems.map(({ title, icon: Svg, description }, index) => (
           <li className={listItemContainerStyles} key={title}>
             <Svg className={iconStyling} />
 
