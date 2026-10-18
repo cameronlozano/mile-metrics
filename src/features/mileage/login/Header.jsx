@@ -1,18 +1,19 @@
+import cn from '../../../utils/cn';
+
 const Header = () => {
   return (
-    <div className='flex flex-col items-center justify-center'>
-      <p className='text-color-subtle pb-3.5 text-xs font-medium tracking-[0.2rem] uppercase'>
+    <div className={cn('gap-space-2xs mx-auto flex flex-col text-center')}>
+      <p className='text-text-subtitle text-xs font-extralight tracking-widest uppercase'>
         A brighter future awaits
       </p>
 
-      <div className='flex flex-col items-center gap-0.5'>
-        <h1 className='text-color-header-primary-dark text-size-header-secondary font-medium tracking-tight'>
-          Welcome Back
-        </h1>
-        <p className='text-color-subtle'>
-          Sign in to access your mileage records
-        </p>
-      </div>
+      <h1 className='text-text-heading text-size-header-secondary font-medium tracking-tight'>
+        Welcome Back
+      </h1>
+
+      <p className='text-text-subtitle text-xs font-light'>
+        Sign in to access your mileage records
+      </p>
     </div>
   );
 };
