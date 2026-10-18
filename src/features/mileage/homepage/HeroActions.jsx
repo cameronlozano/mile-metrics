@@ -11,7 +11,7 @@ const HeroActions = () => {
 
   // #region Get started stylings
   const buttonStyling = cn(
-    'group border-border-brand bg-component-filled relative flex items-center justify-center gap-0.5 rounded-full border px-1 py-1 shadow-sm',
+    'group border-border-brand bg-bg-filled relative flex items-center justify-center gap-0.5 rounded-full border px-1 py-1 shadow-sm',
   );
 
   const pStyling = cn(
