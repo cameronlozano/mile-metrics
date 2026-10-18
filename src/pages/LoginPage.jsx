@@ -1,8 +1,10 @@
 import { useForm } from 'react-hook-form';
 import Link from '../ui/Link';
 
-import { LoginContext } from '../features/mileage/login/LoginContext';
 import Header from '../features/mileage/login/Header';
+import Footer from '../features/mileage/login/Footer';
+
+import { LoginContext } from '../features/mileage/login/LoginContext';
 import ControlledLoginInput from '../features/mileage/login/ControlledLoginInput';
 import Button from '../ui/Button';
 import cn from '../utils/cn';
@@ -33,7 +35,6 @@ const LoginPage = () => {
   );
   // #endregion Container styles
 
-  // #region Form styles
   const inputConfig = {
     icons: {
       email: {
@@ -86,7 +87,6 @@ const LoginPage = () => {
       ),
     },
   };
-  // #endregion Form styles
 
   return (
     <div className={containerStyles}>
@@ -117,39 +117,40 @@ const LoginPage = () => {
           <Link
             className={cn('pt-space-2xs ml-auto text-[8px]')}
             to={'/forgot-password'}
+            dc
           >
             Forgot Password?
           </Link>
         </form>
 
         {/* Submit */}
-        <Button className='w-full' variant='submit'>
+        <Button className='mb-space-sm w-full' variant='submit'>
           Submit
         </Button>
 
-        {/*
-          <p>Better</p>
-          <p>Days</p>
-          <p>Are</p>
-          <p>Coming</p>
+        {/* Create an account link */}
+        <Link
+          className='mb-space-lg p-space-2xs mx-auto flex w-fit'
+          to='/signup'
+        >
+          Create an account
+        </Link>
 
-          <div
-            aria-hidden='true'
-            className='h-px flex-1 bg-linear-to-r from-transparent via-slate-500/20 to-slate-400/30'
-          />
+        {/* <p className='text-text-faint flex flex-col justify-evenly text-[8px] font-extralight'>
+            {'Better Days Are Coming'.split(' ').map((word) => (
+              <span key={word}>{word}</span>
+            ))}
+          </p> */}
 
-          <span className='text-xs text-slate-500'>OR</span>
+        <div className='-mx-page-offset-sides-md'>
+          <Footer />
+        </div>
 
-          <div
-            aria-hidden='true'
-            className='h-px flex-1 bg-linear-to-l from-transparent via-slate-500/20 to-slate-400/30'
-          />
-          */}
-        {/*
-        Create an account link
-        <Link to='/signup'>Create an account</Link>
-        <Footer />
-        */}
+        {/* Footer divider */}
+        <div
+          aria-hidden='true'
+          className='h-px flex-1 bg-linear-to-r from-transparent via-slate-500/20 to-transparent'
+        />
       </LoginContext.Provider>
     </div>
   );
