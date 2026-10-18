@@ -37,6 +37,7 @@
   /* #region COLORS */
 
   /* #region PRIMITIVE TOKENS */
+
   /* #region Brand variations */
   --green-1: #fbfefc; /* Background 1 */
   --green-2: #f4fbf6; /* Background 2 */
@@ -75,11 +76,18 @@
   --gray-11: #646464; /* Low contrast text */
   --gray-12: #404040; /* High contrast text */
   /* #endregion */
+
   /* #endregion */
 
   /* #region SEMANTIC TOKENS */
 
-  /* #region text colors */
+  /* #region Spacing */
+  --spacing-page-offset-top-sm: var(--spacing-space-sm);
+
+  --spacing-page-offset-sides-md: var(--spacing-space-md);
+  /* #endregion 1$ */
+
+  /* #region Text colors */
   --color-text-on-color: var(--gray-1);
 
   --color-text-heading: var(--gray-12);
@@ -90,34 +98,43 @@
   --color-text-brand-muted: var(--green-11);
   --color-text-brand: var(--green-12);
 
+  --color-text-error: var(--color-red-700);
+
   /* #endregion */
 
-  /* #region background colors */
+  /* #region Background colors */
   --color-bg-default: var(--gray-1);
   --color-bg-alt: var(--gray-2);
 
   --color-bg-brand: var(--green-3);
 
-  --color-component-filled: var(--green-9);
-  --color-component-filled-hover: var(--green-10);
+  --color-bg-filled: var(--green-9);
+  --color-bg-filled-hover: var(--green-10);
+
+  --color-bg-error: var(--color-red-50);
 
   /* #endregion */
 
-  /* #region border colors */
+  /* #region Border colors */
   --color-border-faint: rgb(from var(--gray-5) r g b / 0.4);
   --color-border-muted: var(--gray-6);
   --color-border-moderate: var(--gray-7);
+  --color-border-dark: var(--gray-10);
 
   --color-border-brand-muted: var(--green-6);
-  --color-border-brand: var(--green-10);
+  --color-border-brand: var(--green-11);
   /* #endregion */
 
   /* #region SVG colors */
+  --color-svg-default: var(--gray-11);
+
   --color-svg-brand-muted: var(--green-11);
   --color-svg-brand: var(--green-12);
+
+  --color-svg-error: var(--color-red-800);
   /* #endregion */
 
-  /* #region underlines */
+  /* #region Underlines */
   --color-underline-default-muted: var(--color-achromatic-600);
   --color-underline-default: var(--color-achromatic-600);
 
@@ -126,11 +143,12 @@
 
   /* #endregion */
 
-  /* #region focus colors */
+  /* #region Focus colors */
   --color-focus-color-default: var(--color-brand-600);
   /* #endregion */
 
   /* #endregion SEMANTIC TOKENS */
+
   /* #endregion COLORS */
 
   /* #region Spacing */
