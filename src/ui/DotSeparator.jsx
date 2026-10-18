@@ -4,10 +4,7 @@ const DotSeparator = ({ renderAs = 'span', className }) => {
   const Element = renderAs;
 
   return (
-    <Element
-      aria-hidden='true'
-      className={cn('text-(length:--font-8px) text-gray-400', className)}
-    >
+    <Element aria-hidden='true' className={className}>
       •
     </Element>
   );
