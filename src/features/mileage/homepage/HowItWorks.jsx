@@ -1,5 +1,5 @@
 import driveImg from '../../../assets/drive.png';
-import trackImg from '../../../assets/track.png';
+import recordImg from '../../../assets/record.png';
 import saveImg from '../../../assets/save.png';
 import cn from '../../../utils/cn';
 
@@ -14,7 +14,7 @@ const steps = [
   },
   {
     title: 'Track',
-    img: trackImg,
+    img: recordImg,
     description:
       '47% of surveyed gig workers were unaware of tax deductions available to them',
     source:
