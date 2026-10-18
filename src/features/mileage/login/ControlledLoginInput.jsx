@@ -1,104 +1,133 @@
 import { Controller } from 'react-hook-form';
-import handleError from '../../../utils/handleError';
-import cn from '../../../utils/cn';
-import { LockKeyhole, Mail } from 'lucide-react';
-import TextInput from '../../../ui/TextInput';
+
 import { useLoginContext } from './LoginContext';
 
-const ControlledLoginInput = ({ mode }) => {
+import TextInput from '../../../ui/TextInput';
+import handleError from '../../../utils/handleError';
+
+const ControlledLoginInput = ({ mode, inputConfig = {} }) => {
+  const { control } = useLoginContext();
+  const { icons = {}, classNames = {} } = inputConfig;
+
   if (mode == null)
-    handleError('Input requires a mode argument', {
+    handleError('ControlledLoginInput requires a mode argument', {
       control,
       mode,
+      inputConfig,
     });
 
-  const { control } = useLoginContext();
-
   const loginFieldConfig = {
-    // USERNAME CONFIG
-    username: {
-      name: 'username',
-      rules: {
-        required: 'Please provide your username',
-      },
-      id: 'username',
+    //
+    // Email config
+    email: {
+      name: 'email',
+      id: 'email',
       type: 'email',
       label: 'Email Address',
       placeholder: 'you@example.com',
-      Svg: (
-        <Mail
-          aria-hidden='true'
-          size={21}
-          className='text-color-field-label absolute bottom-4.25 left-4.5'
-        />
-      ),
+
+      rules: {
+        required: 'Please provide your email',
+      },
+
+      InputSvg: icons.email?.inputSvg || icons.inputSvg,
+
+      ErrorSvg: icons.email?.fieldErrorSvg || icons.fieldErrorSvg,
+
       className: {
-        textField: cn(''),
+        textField: classNames.email?.textField || classNames.textField,
 
-        inputGroup: cn('relative flex flex-col gap-1.5'),
+        inputGroup: classNames.email?.inputGroup || classNames.inputGroup,
 
-        label: cn('text-color-field-label pl-0.75 font-medium'),
+        label: classNames.email?.label || classNames.label,
 
-        input: cn(
-          'placeholder:text-color-field-placeholder w-110 rounded-lg border border-slate-200 bg-white px-14 py-3.5 text-gray-800 placeholder:tracking-wide',
-        ),
+        input: classNames.email?.input || classNames.input,
+
+        description: classNames.email?.description || classNames.description,
+
+        fieldErrorGroup:
+          classNames.email?.fieldErrorGroup || classNames.fieldErrorGroup,
+
+        fieldError: classNames.email?.fieldError || classNames.fieldError,
       },
     },
 
-    // PASSWORD CONFIG
+    // Password config
     password: {
       name: 'password',
-      rules: {
-        required: 'Please provide your password',
-      },
       id: 'password',
       type: 'password',
       label: 'Password',
       placeholder: 'Enter your password',
-      Svg: (
-        <LockKeyhole
-          aria-hidden='true'
-          size={21}
-          className='text-color-field-label absolute bottom-4.25 left-4.5'
-        />
-      ),
+
+      rules: {
+        required: 'Please provide your password',
+      },
+
+      InputSvg: icons.password?.inputSvg || icons.inputSvg,
+
+      ErrorSvg: icons.password?.fieldErrorSvg || icons.fieldErrorSvg,
+
       className: {
-        textField: cn(''),
+        textField: classNames.password?.textField || classNames.textField,
 
-        inputGroup: cn('relative flex flex-col gap-1.5'),
+        inputGroup: classNames.password?.inputGroup || classNames.inputGroup,
 
-        label: cn('text-color-field-label pl-0.75 font-medium'),
+        label: classNames.password?.label || classNames.label,
 
-        input: cn(
-          'placeholder:text-color-field-placeholder w-110 rounded-lg border border-slate-200 bg-white px-14 py-3.5 text-gray-800 placeholder:tracking-wide',
-        ),
+        input: classNames.password?.input || classNames.input,
+
+        description: classNames.password?.description || classNames.description,
+
+        fieldErrorGroup:
+          classNames.password?.fieldErrorGroup || classNames.fieldErrorGroup,
+
+        fieldError: classNames.password?.fieldError || classNames.fieldError,
       },
     },
   };
 
-  const { name, rules, id, type, label, placeholder, Svg, className } =
-    loginFieldConfig[mode];
+  const {
+    name,
+    type,
+    id,
+    rules,
+
+    label,
+    placeholder,
+
+    InputSvg,
+    ErrorSvg,
+
+    className,
+  } = loginFieldConfig[mode];
 
   return (
     <Controller
-      control={control}
       name={name}
+      control={control}
       rules={rules}
 
-      render={({ field, fieldState }) => (
+      render={({ field, fieldState: { invalid, error } }) => (
+        //
         <TextInput
           value={field.value}
           onChange={field.onChange}
           onBlur={field.onBlur}
-          id={id}
           ref={field.ref}
 
+          id={id}
           type={type}
           label={label}
           placeholder={placeholder}
-          Svg={Svg}
+
+          InputSvg={InputSvg}
+          ErrorSvg={ErrorSvg}
 
           classNames={className}
+
+          invalid={invalid}
+          errorMessage={error?.message}
         />
       )}
     />

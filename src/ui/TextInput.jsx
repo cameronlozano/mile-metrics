@@ -14,37 +14,48 @@ const TextInput = ({
   id,
   ref,
 
+  invalid,
+  errorMessage,
+
   type = 'text',
   label,
   placeholder,
   description,
-  Svg,
-  svgSize,
+
+  InputSvg,
+  ErrorSvg,
 
   classNames = {},
+  //
 }) => {
+  //
   const [defaultValue, setDefaultValue] = useState('');
 
+  // If given onChange + value args, use them otherwise use internal state
   const isControlledInput = value != null && onChange != null;
 
   return (
     <TextField
-      // If given onChange + value args, use them else use internal state
+      // Is controlled or uncontrolled?
       {...(isControlledInput
         ? { value, onChange }
         : { defaultValue, onChange: setDefaultValue })}
+
       className={classNames.textField}
       onBlur={onBlur}
       ref={ref}
       type={type}
+
+      isInvalid={invalid}
     >
-      <div className={classNames.inputGroup}>
-        <Label htmlFor={id} className={classNames.label}>
-          {label}
-        </Label>
+      <Label htmlFor={id} className={classNames.label}>
+        {label}
+      </Label>
+
+      <div className={classNames.inputGroup(invalid)}>
+        {InputSvg && InputSvg(invalid)}
 
         <Input placeholder={placeholder} className={classNames.input} />
-        {Svg && Svg}
       </div>
 
       {description && (
@@ -53,7 +64,13 @@ const TextInput = ({
         </Text>
       )}
 
-      <FieldError className={classNames.fieldError} />
+      <div className={classNames.fieldErrorGroup}>
+        {ErrorSvg && invalid && ErrorSvg}
+
+        <FieldError className={classNames.fieldError}>
+          {errorMessage}
+        </FieldError>
+      </div>
     </TextField>
   );
 };
