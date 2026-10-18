@@ -1,16 +1,19 @@
-const Footer = () => {
-  return (
-    <div className='flex w-full justify-between text-sm'>
-      <div className='text-color-subtle pl-15 font-light tracking-wider'>
-        <p>Mileage tracking</p>
-        <p>
-          For an <em>easier</em> future
-        </p>
-      </div>
+import cn from '../../../utils/cn';
 
-      <div className='text-color-subtle pr-15 font-light'>
-        <p>International use supported</p>
-      </div>
+const Footer = () => {
+  // #region styles
+  const containerStyles = cn(
+    'px-space-sm pb-space-2xs flex w-full items-end justify-between',
+  );
+
+  const textStyles = cn('text-text-faint flex text-[8px]');
+  // #endregion styles
+
+  return (
+    <div className={containerStyles}>
+      <p className={textStyles}>Mileage Tracking</p>
+
+      <p className={textStyles}>International use supported</p>
     </div>
   );
 };
