@@ -5,15 +5,17 @@ import {
   DateSegment,
   FieldError,
   Group,
-  Label,
 } from 'react-aria-components';
+
+import FieldLabel from './FieldLabel';
 
 import {
   Popover as AriaPopover,
   DialogTrigger,
 } from 'react-aria-components/Popover';
 
-import { twMerge } from 'tailwind-merge';
+import cn from '../utils/cn';
+import Asterisk from './Asterisk';
 
 const DatePicker = ({
   value,
@@ -33,19 +35,22 @@ const DatePicker = ({
       value={value}
       onChange={onChange}
       onBlur={onBlur}
+      className={classNames.container}
     >
-      <Label className={classNames.label}>{label}</Label>
+      <FieldLabel className={classNames.label}>
+        {label}
 
-      <Group
-        className={twMerge('relative flex items-center', classNames.group)}
-      >
+        <Asterisk className='absolute -top-0.5 right-11.5' />
+      </FieldLabel>
+
+      <Group className={cn('relative flex items-center', classNames.group)}>
         {children}
-        <DateInput id={id} className={twMerge('flex w-full', classNames.input)}>
+        <DateInput id={id} className={cn(classNames.input)}>
           {(segment) => (
             <DateSegment
               segment={segment}
               className={({ isPlaceholder }) =>
-                twMerge(
+                cn(
                   segment.type === 'literal' ? 'px-px' : '',
                   isPlaceholder ? classNames.placeholder : classNames.segment,
                 )
@@ -70,15 +75,11 @@ const Popover = ({
   placement,
   offset,
   crossOffset,
-  buttonClassName,
+  triggerClassName,
 }) => {
   return (
     <DialogTrigger>
-      <AriaButton
-        className={twMerge('absolute bottom-1 left-1', buttonClassName)}
-      >
-        {trigger}
-      </AriaButton>
+      <AriaButton className={cn(triggerClassName)}>{trigger}</AriaButton>
 
       <AriaPopover
         className='absolute'
