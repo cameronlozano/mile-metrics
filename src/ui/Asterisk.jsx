@@ -4,7 +4,7 @@ const Asterisk = ({ className }) => {
   return (
     <span
       aria-hidden={true}
-      className={cn('absolute text-xs text-gray-600', className)}
+      className={cn('text-svg-dark absolute scale-70 text-xs', className)}
     >
       *
     </span>
