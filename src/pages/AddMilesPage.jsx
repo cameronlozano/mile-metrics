@@ -2,7 +2,6 @@ import { useFieldArray, useForm } from 'react-hook-form';
 import { useQueryClient } from '@tanstack/react-query';
 import { Form } from 'react-router';
 import { useRef } from 'react';
-import toast from 'react-hot-toast';
 
 import { insertMileageEntry } from '../features/mileage/mileageApi';
 import { FormContext } from '../features/mileage/form/FormContext';
@@ -15,6 +14,7 @@ import AddLocationButton from '../features/mileage/form/AddLocationButton';
 import FormNotes from '../features/mileage/form/FormNotes';
 import FormSubmitButton from '../features/mileage/form/FormSubmitButton';
 import showToast from '../utils/showToast';
+import cn from '../utils/cn';
 
 export default function AddMilesPage() {
   const queryClient = useQueryClient();
@@ -68,18 +68,21 @@ export default function AddMilesPage() {
         locations: [...data.locations].flat(),
         notes: data.notes,
       };
+
       console.log({ data, payload });
 
       await showToast(insertMileageEntry(payload), 'form');
 
       // Clear cache
       queryClient.invalidateQueries({ queryKey: ['miles'] });
+
       // Reset form
       // reset();
     } catch (err) {
       console.log(err);
     }
   };
+
   const onError = (errors) => {
     console.log({ errors });
   };
@@ -91,6 +94,12 @@ export default function AddMilesPage() {
         addLocationRef.current?.focus();
       }
   };
+
+  // #region Styles
+  const containerStyles = cn(
+    'pt-page-offset-top-sm px-page-offset-sides-sm w-full',
+  );
+  // #endregion Styles
 
   return (
     <FormContext.Provider
@@ -108,29 +117,23 @@ export default function AddMilesPage() {
     >
       <Form
         onSubmit={handleSubmit(onSubmit, onError)}
-        className='flex w-full justify-center'
+        className={containerStyles}
       >
-        <div>
-          {/* Header */}
-          <div className='flex items-center justify-center pb-5'>
-            <FormHeader />
+        {/* Header */}
+        <div className='pb-space-sm flex items-center justify-center'>
+          <FormHeader />
+        </div>
+
+        <div className='gap-space-lg flex grow basis-0 justify-between'>
+          <FormDatePicker />
+
+          <div className='gap-space-xs flex w-full flex-col'>
+            <FormMilesInput mode='initial' />
+            <FormMilesInput mode='ending' />
           </div>
+        </div>
 
-          {/* content container */}
-          <div className='flex w-6xl flex-col justify-center divide-y-2 divide-gray-200'>
-            {/* Datepicker & mileage inputs */}
-            <div className='mb-4 flex justify-evenly pb-5.5'>
-              {/* Date input */}
-              <FormDatePicker />
-
-              {/* Initial Miles input */}
-              <FormMilesInput mode='initial' />
-
-              {/* Ending Miles input */}
-              <FormMilesInput mode='ending' />
-            </div>
-
-            {/* Location Selection & tags */}
+        {/* Content container temporarily disabled
             <div
               onKeyDownCapture={handleKeyDownCapture}
               className='mb-5 flex flex-col pb-4.5'
@@ -140,17 +143,14 @@ export default function AddMilesPage() {
               <AddLocationButton />
             </div>
 
-            {/* Notes */}
             <div className='mb-5 flex flex-col gap-1.5 pb-10'>
               <FormNotes />
             </div>
 
-            {/* Submit */}
             <div className='flex w-full justify-center'>
               <FormSubmitButton />
             </div>
-          </div>
-        </div>
+            */}
       </Form>
     </FormContext.Provider>
   );
