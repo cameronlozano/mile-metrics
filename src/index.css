@@ -84,6 +84,7 @@
   /* #region Spacing */
   --spacing-page-offset-top-sm: var(--spacing-space-sm);
 
+  --spacing-page-offset-sides-sm: var(--spacing-space-sm);
   --spacing-page-offset-sides-md: var(--spacing-space-md);
   /* #endregion 1$ */
 
@@ -123,10 +124,13 @@
 
   --color-border-brand-muted: var(--green-6);
   --color-border-brand: var(--green-11);
+
+  --color-border-error: var(--color-red-600);
   /* #endregion */
 
   /* #region SVG colors */
   --color-svg-default: var(--gray-11);
+  --color-svg-dark: var(--gray-12);
 
   --color-svg-brand-muted: var(--green-11);
   --color-svg-brand: var(--green-12);
