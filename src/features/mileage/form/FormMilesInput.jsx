@@ -18,14 +18,19 @@ const FormMilesInput = ({ mode }) => {
 
   const inputStyling = (fieldState) =>
     cn(
-      'w-50 rounded-sm border border-gray-200 bg-white py-1.5 text-center text-sm text-gray-600 transition-all duration-100 focus:ring-3 focus:ring-emerald-500 focus:outline-none focus-visible:ring-offset-2',
-      fieldState.invalid && 'border-red-500',
+      'border-border-muted py-space-xs text-text-subtitle w-full rounded-sm border bg-white text-center text-[10px] focus:ring-3 focus:ring-emerald-500 focus:outline-none focus-visible:ring-offset-2',
+      fieldState.invalid && 'border-border-error',
     );
+
   const configLookup = {
     // INITIAL STYLING
     initial: {
-      labelText: 'Initial Miles',
       inputName: 'initialMiles',
+      id: 'initial-odometer',
+
+      placeholder: 'Starting miles...',
+      labelText: 'Initial Miles',
+
       rules: {
         required: 'Please provide the starting odometer value',
         validate: (initialMiles, { endingMiles }) => {
@@ -42,22 +47,26 @@ const FormMilesInput = ({ mode }) => {
           return true;
         },
       },
-      id: 'initial-odometer',
-      placeholder: 'Starting miles...',
+
       svg: () => (
         <Icon
           icon='solar:spedometer-low-broken'
-          className={cn('text-gray-400')}
+          className={cn('text-svg-default')}
         />
       ),
+
       className: inputStyling,
-      asteriskStyling: cn('top-0 right-13.5'),
+      asteriskStyling: cn('top-0 -right-0.5'),
     },
 
     // ENDING STYLING
     ending: {
-      labelText: 'Ending Miles',
       inputName: 'endingMiles',
+      id: 'odometer-end',
+
+      placeholder: 'Ending miles...',
+      labelText: 'Ending Miles',
+
       rules: {
         required: 'Please provide the ending odometer value',
         validate: (endingMiles, { initialMiles }) => {
@@ -75,18 +84,19 @@ const FormMilesInput = ({ mode }) => {
           return true;
         },
       },
-      id: 'odometer-end',
-      placeholder: 'Ending miles...',
+
       svg: () => (
         <Icon
           icon='solar:spedometer-max-broken'
-          className={cn('text-gray-400')}
+          className={cn('text-svg-default')}
         />
       ),
+
       className: inputStyling,
-      asteriskStyling: cn('top-0 right-11.75'),
+      asteriskStyling: cn('top-0 right-3'),
     },
   };
+
   const {
     labelText,
     inputName,
@@ -99,8 +109,8 @@ const FormMilesInput = ({ mode }) => {
   } = configLookup[mode];
 
   return (
-    <div className='flex flex-col gap-1 text-center'>
-      <FieldLabel className='relative text-center' htmlFor='initial-odometer'>
+    <div className='flex flex-col text-center'>
+      <FieldLabel className='relative text-center' htmlFor={id}>
         <Asterisk className={asteriskStyling} />
         {labelText}
       </FieldLabel>
