@@ -1,19 +1,16 @@
-import { twMerge } from 'tailwind-merge';
+import { Label } from 'react-aria-components';
+import cn from '../utils/cn';
 
-export default function sectionTitle({
-  children,
-  htmlFor = '',
-  className = '',
-}) {
+export default function sectionTitle({ children, htmlFor, className = '' }) {
   return (
-    <label
+    <Label
       htmlFor={htmlFor}
-      className={twMerge(
-        `text-base font-medium tracking-tight text-gray-600 capitalize`,
+      className={cn(
+        `text-text-heading text-[10px] font-medium tracking-tight capitalize`,
         className,
       )}
     >
       {children}
-    </label>
+    </Label>
   );
 }
