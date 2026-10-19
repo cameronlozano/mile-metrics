@@ -2,17 +2,17 @@ import { BoltIcon } from '@heroicons/react/24/outline';
 
 const FormHeader = () => {
   return (
-    <div className='flex w-max flex-col gap-2.75'>
-      <h1 className='flex items-center gap-1.5 text-5xl font-bold tracking-wide text-nowrap text-gray-700'>
+    <div className='gap-space-2xs flex flex-col'>
+      <h1 className='text-text-heading text-md relative mx-auto font-bold tracking-wider'>
         Mileage Tracking Made Faster
         <BoltIcon
           aria-hidden='true'
-          className='mt-1.5 size-4.5 shrink-0 text-emerald-700'
+          className='text-svg-brand absolute top-1/2 -right-2.75 size-2 -translate-y-1'
         />
       </h1>
 
-      <p className='text-center text-sm tracking-tight text-gray-500'>
-        Create clear, dependable mileage records—IRS-aligned and tax-ready.
+      <p className='text-text-subtitle text-center text-[10px] font-medium tracking-wide'>
+        Add the details for this mileage record.
       </p>
     </div>
   );
