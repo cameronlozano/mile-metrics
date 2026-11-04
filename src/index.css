@@ -83,7 +83,9 @@
 
   /* #region Spacing */
   --spacing-page-offset-top-sm: var(--spacing-space-sm);
+  --spacing-page-offset-top-lg: var(--spacing-space-lg);
 
+  --spacing-page-offset-sides-xs: var(--spacing-space-xs);
   --spacing-page-offset-sides-sm: var(--spacing-space-sm);
   --spacing-page-offset-sides-md: var(--spacing-space-md);
   /* #endregion 1$ */
