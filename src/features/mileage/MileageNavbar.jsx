@@ -1,72 +1,52 @@
+import Cluster from '../../ui/layout/Cluster';
+import Box from '../../ui/layout/Box';
+
 import { NavLink } from 'react-router';
-import logo from '../../assets/mileMetricsLogo.png';
 import cn from '../../utils/cn';
 
+import logo from '../../assets/mileMetricsLogo.png';
+
 export default function Navbar() {
+  const navLinks = [
+    { to: '/', label: 'Home' },
+    { to: '/login', label: 'Login' },
+    { to: '/add-miles', label: 'Add Miles' },
+    { to: '/view-miles', label: 'View Miles' },
+  ];
+
   // #region Stylings
-  const containerStyles = cn(
-    'px-space-xs bg-bg-alt border-border-muted h-space-md z-50 flex items-center justify-between border-b shadow-xs',
-  );
-  const navLinksContainerStyles = cn(
-    'gap-space-sm pr-space-2xs flex pt-0.75 leading-none',
-  );
 
   const sharedStyles = (isActive) =>
     cn(
       `focus-visible:ring-focus-color-default outline-none focus-visible:rounded-xs focus-visible:ring-2`,
-      // selectedIndicatorStyles,
-      isActive && 'after:scale-x-100',
     );
 
-  const selectedIndicatorStyles = cn(
-    'after:bg-underline-default after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-center after:translate-y-1 after:scale-x-0 after:transition-transform after:duration-150',
-  );
+  const svgStyles = cn('h-[clamp(12px,_3.2px_+_2.75vw,_56px)]');
 
-  const svgStyles = cn('h-space-sm');
-
-  const textLinkStyles = cn(
-    'text-text-brand text-[7px] font-semibold tracking-tight',
+  const linkStyles = cn(
+    'text-text-brand text-[clamp(6px,2.4px_+_1.125vw,24px)] font-semibold tracking-tight',
   );
   // #endregion stylings
 
   return (
-    <div className={containerStyles}>
-      {/* LOGO */}
-      <NavLink className={({ isActive }) => sharedStyles(isActive)} to='/'>
-        <img src={logo} alt='MileMetrics' className={svgStyles} />
-      </NavLink>
-
-      {/* LOGIN */}
-      <div className={navLinksContainerStyles}>
-        <NavLink
-          className={({ isActive }) =>
-            cn(sharedStyles(isActive), textLinkStyles)
-          }
-          to={'/login'}
-        >
-          Login
+    <Box
+      border='border-b border-border-muted'
+      padding={cn('px-[1vw_2vw]', 'py-[0.5vw]')}
+    >
+      <Cluster>
+        {/* LOGO */}
+        <NavLink className={({ isActive }) => sharedStyles(isActive)} to='/'>
+          <img src={logo} alt='MileMetrics' className={svgStyles} />
         </NavLink>
 
-        {/* ADD MILES */}
-        <NavLink
-          className={({ isActive }) =>
-            cn(sharedStyles(isActive), textLinkStyles)
-          }
-          to={'/add-miles'}
-        >
-          Add Miles
-        </NavLink>
-
-        {/* VIEW MILES */}
-        <NavLink
-          className={({ isActive }) =>
-            cn(sharedStyles(isActive), textLinkStyles)
-          }
-          to={'view-miles'}
-        >
-          View miles
-        </NavLink>
-      </div>
-    </div>
+        <Cluster gap='gap-[4vw]' className='ml-auto'>
+          {navLinks.map(({ to, label }) => (
+            <NavLink key={label} to={to} className={linkStyles}>
+              {label}
+            </NavLink>
+          ))}
+        </Cluster>
+      </Cluster>
+    </Box>
   );
 }
