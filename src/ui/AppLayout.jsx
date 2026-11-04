@@ -29,9 +29,7 @@ export default function AppLayout() {
       <ToasterLimit />
       <Navbar />
 
-      <main className='flex min-h-0 w-full flex-1'>
-        <Outlet />
-      </main>
+      <Outlet />
     </div>
   );
 }
