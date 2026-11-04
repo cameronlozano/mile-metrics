@@ -1,38 +1,39 @@
+import Box from '../../../ui/layout/Box';
+import Stack from '../../../ui/layout/Stack';
 import cn from '../../../utils/cn';
 import HeroActions from './HeroActions';
 
 const Header = () => {
-  const containerStyling = cn('flex h-full flex-col');
-  const titleContainerStyling = cn('flex flex-col');
-  const heroActionsContainer = cn('pb-space-2xs my-auto');
-
-  const titleStyling = cn('text-text-heading pt-space-2xs font-bold');
+  const titleStyling = cn(
+    'text-text-heading text-[clamp(1rem,-0.9231rem_+_7.6923vw,6rem)] leading-tight font-bold',
+  );
 
   const subtitleStyling = cn(
-    'text-text-subtitle mb-space-2xs text-[8px] font-light tracking-tighter',
+    'text-text-subtitle text-[clamp(0.5rem,-0.1731rem_+_2.6923vw,2.25rem)] font-medium tracking-tighter',
   );
 
   const descriptionStyling = cn(
-    'text-text-subtitle w-[75%] text-[6px] font-semibold text-balance',
+    'text-text-subtitle w-[30ch] -translate-y-[clamp(0.1875rem,0.025rem_+_0.8125vw,1rem)] self-center text-[clamp(0.4375rem,-0.1731rem_+_2.6923vw,2.25rem)] text-balance',
   );
 
   return (
-    <div className={containerStyling}>
-      <div className={titleContainerStyling}>
-        <h1 className={titleStyling}>MileMetrics</h1>
+    <Box height='h-full' padding='p-[2vw]'>
+      <div className='grid h-full grid-rows-[auto_1fr_auto]'>
+        <div>
+          <h1 className={titleStyling}>MileMetrics</h1>
 
-        <p className={subtitleStyling}>The smarter way to track every mile</p>
+          <p className={subtitleStyling}>The smarter way to track every mile</p>
+        </div>
 
         <p className={descriptionStyling}>
-          Log your drives, organize your records, and get IRS-ready reports -
-          all in one place
+          A platform for gig-workers to track miles and manage tax reports.
         </p>
-      </div>
 
-      <div className={heroActionsContainer}>
-        <HeroActions />
+        <div>
+          <HeroActions />
+        </div>
       </div>
-    </div>
+    </Box>
   );
 };
 

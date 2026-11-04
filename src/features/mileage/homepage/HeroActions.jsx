@@ -2,38 +2,34 @@ import { Link } from 'react-router';
 import Button from '../../../ui/Button';
 import { ArrowRight, MoveRight } from 'lucide-react';
 import cn from '../../../utils/cn';
+import Stack from '../../../ui/layout/Stack';
 
 const HeroActions = () => {
-  // #region CONTAINER STYLING
-  const container = cn('flex items-center gap-2');
-  const secondaryContainer = cn('flex gap-1');
-  // #endregion
-
   // #region Get started stylings
   const buttonStyling = cn(
-    'group border-border-brand bg-bg-filled relative flex items-center justify-center gap-0.5 rounded-full border px-1 py-1 shadow-sm',
+    'group border-border-brand bg-bg-filled gap-space-2xs relative flex items-center justify-center rounded-full border px-[0.5em] py-[0.3em] text-[clamp(0.5rem,0.0116rem_+_2.1705vw,2.25rem)] shadow-sm',
   );
 
   const pStyling = cn(
-    'text-text-on-color text-[8px] leading-tight font-medium tracking-tight text-nowrap',
+    'text-text-on-color leading-tight font-medium tracking-tight text-nowrap',
   );
 
-  const svgStyling = cn('text-text-on-color size-2');
+  const iconStyles = cn('text-text-on-color size-[0.8em]');
   // #endregion
 
   // #region Sign in stylings
   const linkStyling = cn(
-    'text-text-subtitle group decoration-text-subtitle flex items-center gap-1 text-[8px] underline',
+    'text-text-subtitle group decoration-text-subtitle gap-space-2xs flex items-center text-[clamp(0.4375rem,0.0375rem_+_2vw,2.4375rem)] underline',
   );
 
   const signInIconStyling = cn(
-    'text-text-subtitle size-2.5 translate-y-px transition-all duration-125',
+    'text-text-subtitle size-[1em] translate-y-px transition-all duration-125',
   );
 
   // #endregion
 
   return (
-    <div className={container}>
+    <div className='flex items-center gap-[2.5vw]'>
       {/* Get started button */}
 
       <Button
@@ -44,16 +40,17 @@ const HeroActions = () => {
         className={buttonStyling}
       >
         <p className={pStyling}>Get Started</p>
-        <ArrowRight aria-hidden='true' className={svgStyling} />
+        <ArrowRight aria-hidden='true' className={iconStyles} />
       </Button>
 
       {/* Sign in */}
-      <div className={secondaryContainer}>
+      <div className='gap-space-2xs flex items-center'>
         <Link to='/login' className={linkStyling}>
           Sign in
+          <span>
+            <MoveRight className={signInIconStyling} />
+          </span>
         </Link>
-
-        <MoveRight className={signInIconStyling} />
       </div>
     </div>
   );
