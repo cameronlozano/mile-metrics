@@ -1,41 +1,42 @@
 import BuiltWith from '../features/mileage/homepage/BuiltWith';
-import HeroEyebrow from '../features/mileage/homepage/HeroEyebrow';
 import HeroSection from '../features/mileage/homepage/HeroSection';
 import HowItWorks from '../features/mileage/homepage/HowItWorks';
 import ProductHighlights from '../features/mileage/homepage/ProductHighlights';
-import cn from '../utils/cn';
+
+import Stack from '../ui/layout/Stack';
+import Box from '../ui/layout/Box';
 
 export default function HomePage() {
   return (
-    // Container
-    <div className={cn('mx-space-xs grid grid-cols-4')}>
-      <section
-        className={cn(
-          '-mx-space-xs mb-space-2xs border-b-border-muted col-span-4 row-start-1 border-b',
-        )}
-      >
-        <HeroSection />
-      </section>
+    <main>
+      <Stack spacing='space-y-space-xl'>
+        <Stack renderAs='section' spacing='space-y-space-sm'>
+          <HeroSection />
 
-      <div className={cn('mb-space-sm col-span-4 col-start-1 row-start-2')}>
-        <HeroEyebrow />
-      </div>
+          <hr className='border-border-faint my-8 border-0 border-t' />
+        </Stack>
 
-      <section className='mb-space-sm col-span-4 col-start-1 row-start-3'>
-        <ProductHighlights />
-      </section>
+        <section>
+          <ProductHighlights />
+        </section>
 
-      <section
-        className={cn(
-          '-mx-space-xs mb-space-sm col-span-4 col-start-1 row-start-4',
-        )}
-      >
-        <HowItWorks />
-      </section>
+        <Box
+          renderAs={'section'}
 
-      <section className='col-span-4 col-start-1 row-start-5'>
-        <BuiltWith />
-      </section>
-    </div>
+          background='bg-bg-default'
+
+          padding='py-space-xs'
+
+          border='border-y'
+          borderStyles='border-border-faint'
+        >
+          <HowItWorks />
+        </Box>
+
+        <section className=''>
+          <BuiltWith />
+        </section>
+      </Stack>
+    </main>
   );
 }
