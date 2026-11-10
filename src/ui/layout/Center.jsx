@@ -1,10 +1,12 @@
 import cn from '../../utils/cn';
 
-const Center = ({ children, maxInlineSize = 'max-inline-fit', className }) => {
+const Center = ({ render, children, width = 'max-inline-fit', className }) => {
+  const Element = render ?? 'div';
+
   return (
-    <div className={cn('mx-auto box-content', maxInlineSize, className)}>
+    <Element className={cn('mx-auto box-content', width, className)}>
       {children}
-    </div>
+    </Element>
   );
 };
 
