@@ -5,7 +5,7 @@
   html,
   body {
     scrollbar-gutter: stable;
-    background-color: var(--color-bg-alt);
+    background-color: var(--color-bg);
   }
 }
 
@@ -85,6 +85,7 @@
   --spacing-page-offset-top-sm: var(--spacing-space-sm);
   --spacing-page-offset-top-lg: var(--spacing-space-lg);
 
+  --spacing-page-offset-sides-2xs: var(--spacing-space-2xs);
   --spacing-page-offset-sides-xs: var(--spacing-space-xs);
   --spacing-page-offset-sides-sm: var(--spacing-space-sm);
   --spacing-page-offset-sides-md: var(--spacing-space-md);
@@ -95,8 +96,6 @@
 
   --color-text-heading: var(--gray-12);
   --color-text-subtitle: var(--gray-11);
-
-  --color-text-faint: rgb(from var(--gray-11) r g b / 0.9);
 
   --color-text-brand-muted: var(--green-11);
   --color-text-brand: var(--green-12);
