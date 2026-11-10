@@ -1,6 +1,13 @@
 import driveImg from '../../../assets/drive.png';
 import recordImg from '../../../assets/record.png';
 import saveImg from '../../../assets/save.png';
+
+import Box from '../../../ui/layout/Box';
+import Stack from '../../../ui/layout/Stack';
+import Grid from '../../../ui/layout/Grid';
+import Frame from '../../../ui/layout/Frame';
+import Center from '../../../ui/layout/Center';
+
 import cn from '../../../utils/cn';
 
 const steps = [
@@ -31,63 +38,66 @@ const steps = [
 ];
 
 const HowItWorks = () => {
-  const sectionStyles = cn(
-    'bg-color-bg border-border-faint py-space-xs gap-space-md flex flex-col border-t border-b',
-  );
-
   const eyebrowStyles = cn(
-    'text-text-subtitle mx-auto text-[clamp(0.3125rem,calc(0.2125rem+0.5vw),0.8125rem)] font-light tracking-widest uppercase',
+    'text-text-subtitle mx-auto text-xs font-extralight tracking-widest uppercase',
   );
 
   // #region Step styles
-  const stepsListStyles = cn('gap-space-lg flex flex-col');
 
-  const stepItemStyles = cn('grid grid-cols-2 items-center');
+  const imgStyles = cn('h-full w-full object-cover');
 
-  const stepContentStyles = cn('gap-y-space-2xs flex flex-col text-center');
+  const headingStyles = cn('text-text-heading text-6xl font-bold');
 
-  const stepImageStyles = cn(
-    'border-border-moderate mr-space-xs ml-auto aspect-video w-[90%] rounded-md border shadow-sm',
+  const descriptionStyles = cn(
+    'text-text-subtitle w-[40ch] text-sm leading-loose font-bold',
   );
 
-  const stepHeadingStyles = cn('text-text-heading font-bold');
-
-  const stepDescriptionStyles = cn(
-    'text-text-subtitle mx-auto w-[75%] text-[6px] font-medium',
-  );
-
-  const stepSourceLinkStyles = cn(
-    'text-text-subtitle block text-[6px] tracking-tight',
-  );
+  const sourceStyles = cn('text-text-subtitle text-sm tracking-tight');
   // #endregion
 
   return (
-    <div className={sectionStyles}>
-      <p className={eyebrowStyles}>Make more on every mile</p>
+    <Box padding='px-page-offset-sides-xs py-space-sm'>
+      {/* Spacing between the eyebrow and the How It Works steps */}
+      <Stack spacing='space-y-space-lg'>
+        <Center render='p' className={eyebrowStyles}>
+          Make more on every mile
+        </Center>
 
-      <ul className={stepsListStyles}>
-        {steps.map(({ title, img, description, source }) => (
-          <li key={title} className={stepItemStyles}>
-            <div className={stepContentStyles}>
-              <h2 className={stepHeadingStyles}>{title}</h2>
+        <Box render='ul' padding='px-page-offset-sides-2xs'>
+          {/* Spacing between each How It Works step ⬇️ */}
+          <Stack render='li' spacing='space-y-space-2xl'>
+            {steps.map(({ title, img, description, source }) => (
+              // Spacing between the description and the image ⬇️
+              <Stack key={title} spacing='space-y-space-md'>
+                {/* Spacing between the header, description and source ⬇️ */}
+                <Stack spacing='space-y-space-xs' className='text-start'>
+                  <h2 className={headingStyles}>{title}</h2>
 
-              <p className={stepDescriptionStyles}>{description}</p>
+                  <p className={descriptionStyles}>{description}</p>
 
-              <a
-                href={source}
-                className={stepSourceLinkStyles}
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                source
-              </a>
-            </div>
+                  <a
+                    href={source}
+                    className={sourceStyles}
 
-            <img className={stepImageStyles} src={img} alt='' />
-          </li>
-        ))}
-      </ul>
-    </div>
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    source
+                  </a>
+                </Stack>
+
+                <Frame
+                  border='border-2'
+                  borderStyles='border-border-faint shadow-md rounded-lg'
+                >
+                  <img className={imgStyles} src={img} alt='' />
+                </Frame>
+              </Stack>
+            ))}
+          </Stack>
+        </Box>
+      </Stack>
+    </Box>
   );
 };
 
