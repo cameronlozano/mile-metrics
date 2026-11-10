@@ -1,4 +1,8 @@
 /* eslint-disable no-unused-vars */
+import cn from '../../../utils/cn';
+import Center from '../../../ui/layout/Center';
+import Stack from '../../../ui/layout/Stack';
+import Cluster from '../../../ui/layout/Cluster';
 
 import {
   Car,
@@ -6,29 +10,19 @@ import {
   NotebookText,
   ShieldCheck,
 } from 'lucide-react';
-
-import cn from '../../../utils/cn';
+import Box from '../../../ui/layout/Box';
 
 const ProductHighlights = () => {
-  // #region Container styles
-  const containerStyles = cn('gap-x-space-md gap-y-space-xs grid grid-cols-2');
+  // #region styles
 
-  const listItemContainerStyles = cn(
-    'flex w-22 flex-col items-center gap-2 rounded-sm py-3 odd:justify-self-end even:justify-self-start',
-  );
-
-  const textContainerStyles = cn('flex flex-col items-center gap-1');
-  //  #endregion
-
-  // #region List item styles
   const iconStyling = cn(
-    'text-svg-brand-muted bg-bg-brand border-border-brand-muted size-5.25 rounded-sm border p-1',
+    'text-svg-brand-muted bg-bg-brand border-border-brand-muted p-space-2xs size-12 rounded-sm border',
   );
 
-  const h3Styling = cn('text-text-heading text-center text-[8px] font-bold');
+  const h3Styling = cn('text-text-heading text-center text-2xl font-bold');
 
   const pStyling = cn(
-    'text-text-subtitle w-[95%] text-center text-[6px] leading-2 font-medium tracking-tight text-balance',
+    'text-text-subtitle text-md w-[25ch] text-center font-medium tracking-tight text-balance',
   );
   // #endregion
 
@@ -59,18 +53,32 @@ const ProductHighlights = () => {
     <>
       <h2 className={cn('sr-only')}>Product Highlights</h2>
 
-      <ul className={containerStyles}>
-        {listItems.map(({ title, icon: Svg, description }, index) => (
-          <li className={listItemContainerStyles} key={title}>
-            <Svg className={iconStyling} />
+      <Box padding='px-page-offset-sides-xs' margin='mb-space-2xs'>
+        <Cluster
+          renderAs='ul'
+          justify='justify-center'
+          gap='gap-x-space-md gap-y-space-2xl'
+        >
+          {listItems.map(({ title, icon: Svg, description }) => (
+            //
+            // Card structure ⬇️
+            <Stack
+              key={title}
+              renderAs={'li'}
+              className='grow'
 
-            <div className={textContainerStyles}>
+              alignment='items-center'
+              spacing='space-y-space-xs'
+            >
+              <Svg className={iconStyling} />
+
               <h3 className={h3Styling}>{title}</h3>
+
               <p className={pStyling}>{description}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
+            </Stack>
+          ))}
+        </Cluster>
+      </Box>
     </>
   );
 };
