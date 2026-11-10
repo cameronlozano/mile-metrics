@@ -1,7 +1,7 @@
 import cn from '../../utils/cn';
 
-const Grid = ({ children, renderAs, gap, minWidth = '250px', className }) => {
-  const Element = renderAs ?? 'div';
+const Grid = ({ children, render, gap, minWidth = '250px', className }) => {
+  const Element = render ?? 'div';
 
   return (
     <Element

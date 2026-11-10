@@ -2,7 +2,7 @@ import cn from '../../utils/cn';
 
 const Box = ({
   children,
-  renderAs,
+  render,
 
   height,
   width,
@@ -17,7 +17,7 @@ const Box = ({
 
   className,
 }) => {
-  const Element = renderAs ?? 'div';
+  const Element = render ?? 'div';
   return (
     <Element
       className={cn(

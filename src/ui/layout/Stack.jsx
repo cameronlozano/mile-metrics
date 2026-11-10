@@ -1,7 +1,7 @@
 import cn from '../../utils/cn';
 
 const Stack = ({
-  renderAs = 'div',
+  render = 'div',
   children,
 
   spacing,
@@ -9,7 +9,7 @@ const Stack = ({
 
   className,
 }) => {
-  const Element = renderAs;
+  const Element = render;
 
   return (
     <Element
