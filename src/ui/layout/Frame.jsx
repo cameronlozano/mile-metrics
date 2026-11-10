@@ -1,18 +1,23 @@
 import cn from '../../utils/cn';
 
 const Frame = ({
-  children,
-  renderAs,
   aspectRatio = 'aspect-[16/9]',
+  border,
+  borderStyles,
   className,
+
+  children,
+  render,
 }) => {
-  const Element = renderAs ?? 'div';
+  const Element = render ?? 'div';
 
   return (
     <Element
       className={cn(
         'flex w-full items-center justify-center overflow-hidden',
         aspectRatio,
+        border,
+        borderStyles,
         className,
       )}
     >
