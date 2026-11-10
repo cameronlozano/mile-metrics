@@ -5,7 +5,7 @@ import DotSeparator from '../../../ui/DotSeparator';
 const listStyles = cn('flex items-start justify-evenly');
 
 const listItemStyles = cn(
-  'text-text-faint flex text-[6px] font-light uppercase',
+  'text-text-faint flex text-[10px] font-light uppercase',
 );
 /* #endregion */
 
