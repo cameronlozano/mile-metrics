@@ -1,8 +1,8 @@
-import cn from '../../../utils/cn';
+import Stack from '../../../ui/layout/Stack';
 
 const Header = () => {
   return (
-    <div className={cn('gap-space-2xs mx-auto flex flex-col text-center')}>
+    <Stack spacing='space-y-space-2xs'>
       <p className='text-text-subtitle text-xs font-extralight tracking-widest uppercase'>
         A brighter future awaits
       </p>
@@ -14,7 +14,7 @@ const Header = () => {
       <p className='text-text-subtitle text-xs font-light'>
         Sign in to access your mileage records
       </p>
-    </div>
+    </Stack>
   );
 };
 
